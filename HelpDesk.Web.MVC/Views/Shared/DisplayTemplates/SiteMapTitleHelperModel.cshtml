@@ -2,4 +2,14 @@
 @using System.Web.Mvc.Html
 @using MvcSiteMapProvider.Web.Html.Models
 
-@if (Model.CurrentNode != null) {@Model.CurrentNode.Title;}
+@if (Model.CurrentNode != null)
+{
+    <h1>
+        @Model.CurrentNode.Title
+
+    </h1>
+    <small>
+        @Model.CurrentNode.Description
+    </small>
+    
+}

@@ -15,10 +15,9 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                @ViewBag.Title
-                <small>@ViewBag.Content</small>
-            </h1>
+            @Html.MvcSiteMap().SiteMapTitle("SiteMapTitleHelperModel")
+
+
             @Html.MvcSiteMap().SiteMapPath("SiteMapPathHelperModel")
 
         </section>
