@@ -121,6 +121,15 @@
     <value>電腦申請清單</value>
   </data>
   <data name="LiteralEnrollCaption.Text" xml:space="preserve">
-    <value>新人帳號申請清單</value>
+    <value>帳號申請清單</value>
+  </data>
+  <data name="LiteralEnrollPage.Text" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="LiteralComputer.Text" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="Page.Title" xml:space="preserve">
+    <value>首頁</value>
   </data>
 </root>

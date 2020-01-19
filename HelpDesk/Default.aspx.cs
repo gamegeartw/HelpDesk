@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Default.aspx.cs" company="NAFCO">
+//   HelpDesk.ASP.NET
+// </copyright>
+// <summary>
+//   The _ default.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace HelpDesk
 {
-    public partial class _Default : Page
+    using System;
+
+    /// <summary>
+    /// The _ default.
+    /// </summary>
+    public partial class _Default : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

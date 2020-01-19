@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk.ViewModels", "Help
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk.Web.MVC", "HelpDesk.Web.MVC\HelpDesk.Web.MVC.csproj", "{2194804A-685C-406D-AA9F-B88EF6538F50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk.Enums", "HelpDesk.Enums\HelpDesk.Enums.csproj", "{FFB1FEDD-8AC3-4E61-8E30-70112EE05AB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{2194804A-685C-406D-AA9F-B88EF6538F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2194804A-685C-406D-AA9F-B88EF6538F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2194804A-685C-406D-AA9F-B88EF6538F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB1FEDD-8AC3-4E61-8E30-70112EE05AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB1FEDD-8AC3-4E61-8E30-70112EE05AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB1FEDD-8AC3-4E61-8E30-70112EE05AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB1FEDD-8AC3-4E61-8E30-70112EE05AB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

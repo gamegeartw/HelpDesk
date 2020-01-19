@@ -13,5 +13,11 @@ namespace HelpDesk
         {
 
         }
+
+        protected void DropDownListLng_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            // this.Session["Language"] = this.DropDownListLng.SelectedValue;
+            // this.Page.DataBind();
+        }
     }
 }

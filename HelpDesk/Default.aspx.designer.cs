@@ -7,11 +7,13 @@
 // </自動產生的>
 //------------------------------------------------------------------------------
 
-namespace HelpDesk {
-    
-    
-    public partial class _Default {
-        
+namespace HelpDesk
+{
+
+
+    public partial class _Default
+    {
+
         /// <summary>
         /// LiteralEnrollCaption 控制項。
         /// </summary>
@@ -20,7 +22,25 @@ namespace HelpDesk {
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal LiteralEnrollCaption;
-        
+
+        /// <summary>
+        /// ListViewEnrollAccount 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::HelpDesk.Components.ListViewEnrollAccount ListViewEnrollAccount;
+
+        /// <summary>
+        /// LiteralEnrollPage 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LiteralEnrollPage;
+
         /// <summary>
         /// LiteralComputerCaption 控制項。
         /// </summary>
@@ -29,5 +49,14 @@ namespace HelpDesk {
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal LiteralComputerCaption;
+
+        /// <summary>
+        /// LiteralComputer 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LiteralComputer;
     }
 }

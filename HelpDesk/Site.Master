@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - 我的 ASP.NET  應用程式</title>
+    <title><%: Page.Title %> - <asp:Literal runat="server" ID="LiteralTitle" meta:resourcekey="LiteralTitle" /> </title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -57,15 +57,16 @@
                     <div class="breadcrumb padding-right-20">
                         <asp:SiteMapPath runat="server" Font-Names="Microsoft JhengHei" Font-Size="12px" CssClass=""/>
                     </div>
-
-                    <%-- <ol class="breadcrumb"> --%>
-                    <%--     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> --%>
-                    <%--     <li class="active">Dashboard</li> --%>
-                    <%-- </ol> --%>
                 </section>
                 <section class="content">
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                    </asp:ContentPlaceHolder>
+                    <div>
+                        <asp:ValidationSummary runat="server" ID="ValidationSummary1"/>
+                    </div>
+                    <div>
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                        
+                    </div>
+
                 </section>
             </div>
             <footer class="main-footer">

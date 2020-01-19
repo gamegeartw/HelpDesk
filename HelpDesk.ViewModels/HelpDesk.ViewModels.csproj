@@ -41,8 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountEnrollViewModel.cs" />
     <Compile Include="FormSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Enums\HelpDesk.Enums.csproj">
+      <Project>{ffb1fedd-8ac3-4e61-8e30-70112ee05ab6}</Project>
+      <Name>HelpDesk.Enums</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

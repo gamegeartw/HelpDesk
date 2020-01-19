@@ -199,7 +199,9 @@
     <Content Include="AdminLTE-2.4.10\dist\js\demo.js" />
     <Content Include="AdminLTE-2.4.10\dist\js\pages\dashboard.js" />
     <Content Include="AdminLTE-2.4.10\dist\js\pages\dashboard2.js" />
+    <Content Include="Components\DeptNoDropDownListComponent.ascx" />
     <Content Include="Components\FormViewSearchComponent.ascx" />
+    <Content Include="Components\LabelStatusEx.ascx" />
     <Content Include="Components\ListViewEnrollAccount.ascx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -304,6 +306,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap-multiselect-collapsible-groups.js" />
+    <Content Include="Scripts\bootstrap-multiselect.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
@@ -311,6 +315,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\main.js" />
@@ -345,6 +350,7 @@
     <Content Include="Site.Master" />
     <Content Include="UCHeader.ascx" />
     <Content Include="UCSideBar.ascx" />
+    <Content Include="UserPages\AccountEnrollForm.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -366,6 +372,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Web.sitemap.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.sitemap.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Web.sitemap.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.sitemap.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Web.sitemap.zh-CHS.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.sitemap.zh-CHS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Web.sitemap.zh-TW.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.sitemap.zh-TW.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -375,12 +401,29 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\DeptNoDropDownListComponent.ascx.cs">
+      <DependentUpon>DeptNoDropDownListComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\DeptNoDropDownListComponent.ascx.designer.cs">
+      <DependentUpon>DeptNoDropDownListComponent.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Components\FormViewSearchComponent.ascx.cs">
       <DependentUpon>FormViewSearchComponent.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Components\FormViewSearchComponent.ascx.designer.cs">
       <DependentUpon>FormViewSearchComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LabelStatusEx.ascx.cs">
+      <DependentUpon>LabelStatusEx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\LabelStatusEx.ascx.designer.cs">
+      <DependentUpon>LabelStatusEx.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\ListViewEnrollAccount.ascx.cs">
       <DependentUpon>ListViewEnrollAccount.ascx</DependentUpon>
@@ -436,6 +479,13 @@
     <Compile Include="UCSideBar.ascx.designer.cs">
       <DependentUpon>UCSideBar.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserPages\AccountEnrollForm.aspx.cs">
+      <DependentUpon>AccountEnrollForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPages\AccountEnrollForm.aspx.designer.cs">
+      <DependentUpon>AccountEnrollForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -445,6 +495,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Enums\HelpDesk.Enums.csproj">
+      <Project>{ffb1fedd-8ac3-4e61-8e30-70112ee05ab6}</Project>
+      <Name>HelpDesk.Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelpDesk.Models\HelpDesk.Models.csproj">
       <Project>{2db56e5e-2521-484b-885b-d9c85751491e}</Project>
       <Name>HelpDesk.Models</Name>
@@ -470,7 +524,9 @@
     <Content Include="Components\App_LocalResources\FormViewSearchComponent.ascx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Default.aspx.resx" />
+    <Content Include="App_LocalResources\Default.aspx.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Components\App_LocalResources\ListViewEnrollAccount.ascx.resx">
@@ -481,6 +537,67 @@
     <Content Include="App_GlobalResources\GlobalResource.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>GlobalResource.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.zh-CHS.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.zh-CHS.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\UCHeader.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\UCHeader.ascx.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\UCHeader.ascx.zh-CHS.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\UCHeader.ascx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Web.sitemap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.sitemap.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Web.sitemap.zh-TW.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.sitemap.zh-TW.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Web.sitemap.zh-CHS.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.sitemap.zh-CHS.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Web.sitemap.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.sitemap.en-US.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

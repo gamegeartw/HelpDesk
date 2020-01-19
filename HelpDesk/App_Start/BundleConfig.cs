@@ -45,6 +45,8 @@ namespace HelpDesk
                 "~/Scripts/jquery-ui-1.12.1.min.js",
                 "~/Scripts/jquery.validate.min.js",
                 "~/AdminLTE-2.4.10/dist/js/adminlte.min.js",
+                "~/Scripts/bootstrap-multiselect.js",
+                "~/Scripts/jquery.blockUI.js",
                 "~/Scripts/main.js"));
         }
     }

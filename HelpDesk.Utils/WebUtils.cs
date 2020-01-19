@@ -1,40 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="WebUtils.cs" company="NAFCO">
+//   NAFCO.Utils
+// </copyright>
+// <summary>
+//   Defines the WebUtils type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace HelpDesk.Utils
 {
-    using System.Net.Http;
+    using System.Security.Principal;
 
+    using HelpDesk.Models;
+
+    /// <summary>
+    /// The web utils.
+    /// </summary>
     public static class WebUtils
     {
         /// <summary>
-        /// The data page desc.
+        /// The get user.
         /// </summary>
-        /// <param name="templateString">
-        /// The template string.
-        /// </param>
-        /// <param name="startRowIndex">
-        /// The start row index.
-        /// </param>
-        /// <param name="maxCount">
-        /// The max count.
-        /// </param>
-        /// <param name="totalRowCount">
-        /// The total row count.
+        /// <param name="ctx">
+        /// The ctx.
         /// </param>
         /// <returns>
-        /// The <see cref="string"/>.
+        /// The <see cref="UserData"/>.
         /// </returns>
-        public static string DataPageDesc(
-            string templateString,
-            int startRowIndex,
-            int maxCount,
-            int totalRowCount)
+        public static UserData GetUser(System.Web.HttpContext ctx)
         {
-            return string.Format(templateString, startRowIndex, maxCount, totalRowCount);
+            if (ctx.User.Identity.IsAuthenticated)
+            {
+                var empNo = ctx.User.Identity.Name;
+            }
+
+            return null;
         }
     }
 }
