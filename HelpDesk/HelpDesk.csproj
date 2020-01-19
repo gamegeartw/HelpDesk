@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
       <Private>True</Private>
@@ -195,6 +199,8 @@
     <Content Include="AdminLTE-2.4.10\dist\js\demo.js" />
     <Content Include="AdminLTE-2.4.10\dist\js\pages\dashboard.js" />
     <Content Include="AdminLTE-2.4.10\dist\js\pages\dashboard2.js" />
+    <Content Include="Components\FormViewSearchComponent.ascx" />
+    <Content Include="Components\ListViewEnrollAccount.ascx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -355,6 +361,11 @@
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\GlobalResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -364,6 +375,20 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Components\FormViewSearchComponent.ascx.cs">
+      <DependentUpon>FormViewSearchComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\FormViewSearchComponent.ascx.designer.cs">
+      <DependentUpon>FormViewSearchComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ListViewEnrollAccount.ascx.cs">
+      <DependentUpon>ListViewEnrollAccount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\ListViewEnrollAccount.ascx.designer.cs">
+      <DependentUpon>ListViewEnrollAccount.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -378,6 +403,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Events\HelpDeskEventArgs.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -418,7 +444,45 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Models\HelpDesk.Models.csproj">
+      <Project>{2db56e5e-2521-484b-885b-d9c85751491e}</Project>
+      <Name>HelpDesk.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Repos\HelpDesk.Repos.csproj">
+      <Project>{e443925d-2a20-40c1-a070-dda4d85142fb}</Project>
+      <Name>HelpDesk.Repos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Services\HelpDesk.Services.csproj">
+      <Project>{5d342632-f9ab-4570-b650-b4c21114d120}</Project>
+      <Name>HelpDesk.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Utils\HelpDesk.Utils.csproj">
+      <Project>{d797ea73-5f57-45f5-94e5-c05298d3e814}</Project>
+      <Name>HelpDesk.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.ViewModels\HelpDesk.ViewModels.csproj">
+      <Project>{c2876e55-b450-46c9-899a-e19fce56c35b}</Project>
+      <Name>HelpDesk.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\App_LocalResources\FormViewSearchComponent.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\App_LocalResources\ListViewEnrollAccount.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GlobalResource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GlobalResource.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

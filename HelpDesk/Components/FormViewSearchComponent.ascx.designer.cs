@@ -7,27 +7,27 @@
 // </自動產生的>
 //------------------------------------------------------------------------------
 
-namespace HelpDesk {
+namespace HelpDesk.Components {
     
     
-    public partial class _Default {
+    public partial class FormViewSearchComponent {
         
         /// <summary>
-        /// LiteralEnrollCaption 控制項。
+        /// LiteralBoxTitle 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LiteralEnrollCaption;
+        protected global::System.Web.UI.WebControls.Literal LiteralBoxTitle;
         
         /// <summary>
-        /// LiteralComputerCaption 控制項。
+        /// FormViewMain 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LiteralComputerCaption;
+        protected global::System.Web.UI.WebControls.FormView FormViewMain;
     }
 }
