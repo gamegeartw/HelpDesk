@@ -350,6 +350,7 @@
     <Content Include="Site.Master" />
     <Content Include="UCHeader.ascx" />
     <Content Include="UCSideBar.ascx" />
+    <Content Include="UCSideBar1.ascx" />
     <Content Include="UserPages\AccountEnrollForm.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -478,6 +479,13 @@
     </Compile>
     <Compile Include="UCSideBar.ascx.designer.cs">
       <DependentUpon>UCSideBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UCSideBar1.ascx.cs">
+      <DependentUpon>UCSideBar1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UCSideBar1.ascx.designer.cs">
+      <DependentUpon>UCSideBar1.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserPages\AccountEnrollForm.aspx.cs">
       <DependentUpon>AccountEnrollForm.aspx</DependentUpon>

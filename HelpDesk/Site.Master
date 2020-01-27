@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="HelpDesk.SiteMaster" %>
 
-<%@ Register Src="~/UCSideBar.ascx" TagPrefix="uc1" TagName="UCSideBar" %>
+<%@ Register Src="~/UCSideBar1.ascx" TagPrefix="uc1" TagName="UCSideBar1" %>
 <%@ Register Src="~/UCHeader.ascx" TagPrefix="uc1" TagName="UCHeader" %>
 
 
@@ -48,7 +48,7 @@
 
 
             <uc1:UCHeader runat="server" id="UCHeader" />
-            <uc1:UCSideBar runat="server" ID="UCSideBar" />
+            <uc1:UCSideBar1 runat="server" ID="UCSideBar1" />
             <div class="content-wrapper" style="min-height: 100%">
                 <section class="content-header">
                     <h1>

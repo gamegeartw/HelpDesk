@@ -66,7 +66,7 @@
                                     <th>
                                         <div class="checkbox">
                                             <label>
-                                                <asp:CheckBox runat="server" ID="CheckBoxAllowADAccount" />
+                                                <asp:CheckBox runat="server" ID="CheckBoxAllowADAccount" OnCheckedChanged="CheckBox_OnCheckedChanged" />
                                             申請AD帳號(
                                                 <a data-toggle="modal" data-target="#modal-default">
                                                     說明
@@ -76,13 +76,20 @@
                                         
                                     </th>
                                     <td>
+                                        <asp:Panel runat="server" ID="PanelAllowADAccount">
+
+                                       
                                         <div id="showADaccountPanel">
                                             <br />
                                             <div class="form-horizontal">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-2" title="(請填工號)">申請人:</label>
                                                     <div class="col-md-10">
-                                                        <asp:TextBox runat="server" CssClass="form-control bg-yellow" ID="TextBoxEmpNo" />
+                                                        <asp:TextBox
+                                                            runat="server"
+                                                            Enabled="False"
+                                                            CssClass="form-control bg-yellow"
+                                                            ID="TextBoxEmpNo" />
                                                     </div>
                                                     <br />
                                                 </div>
@@ -92,13 +99,20 @@
                                                         <asp:TextBox 
                                                             runat="server" 
                                                             ID="TextBoxADAccount" 
+                                                            Enabled="False"
                                                             Text="<%#: BindItem.ADAccount %>" 
                                                             CssClass="form-control bg-yellow" />
                                                     </div>
 
                                                     <label class="control-label  col-md-2">密碼:</label>
                                                     <div class="col-md-4">
-                                                        <asp:TextBox runat="server" ID="ADPassword" TextMode="Password" Text="<%#: BindItem.ADPassword %>" CssClass="form-control bg-yellow" />
+                                                        <asp:TextBox
+                                                            runat="server"
+                                                            ID="ADPassword"
+                                                            TextMode="Password"
+                                                            Enabled="False"
+                                                            Text="<%#: BindItem.ADPassword %>"
+                                                            CssClass="form-control bg-yellow" />
                                                     </div>
                                                     <br />
                                                 </div>
@@ -110,14 +124,20 @@
                                                     </label>
                                                     <div class="col-md-10">
                                                         <div class="input-group">
-                                                            <asp:TextBox runat="server" CssClass="form-control bg-yellow" ID="TextBoxEmailQuota" Text="<%#:BindItem.EmailQuota %>" />
+                                                            <asp:TextBox
+                                                                runat="server"
+                                                                Enabled="False"
+                                                                CssClass="form-control bg-yellow"
+                                                                ID="TextBoxEmailQuota"
+                                                                Text="<%#:BindItem.EmailQuota %>" />
                                                             <span class="input-group-addon">MB</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </td>
+                                        </asp:Panel>
+                                        </td>
                                 </tr>
                                 <tr>
                                     <th>
@@ -129,6 +149,8 @@
                                         </div>
                                     </th>
                                     <td>
+                                        <asp:Panel runat="server" ID="PanelAllowPublicFolder">
+
                                         <div id="showPublicFolderPanel">
                                             <div class="form-horizontal">
                                                 <div class="form-group">
@@ -136,6 +158,7 @@
                                                     <div class="col-md-10">
                                                         <asp:TextBox
                                                             runat="server"
+                                                            Enabled="False"
                                                             CssClass="form-control bg-yellow"
                                                             Text="<%#: BindItem.PublicFolderPath %>"
                                                             ID="TextBoxPublicFolder" />
@@ -143,6 +166,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </asp:Panel>
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -155,19 +180,23 @@
                                         </div>
                                     </th>
                                     <td>
-                                        <div class="form-horizontal">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2">需求原因:</label>
-                                                <div class="col-md-10">
-                                                    <asp:TextBox
-                                                        runat="server"
-                                                        CssClass="form-control bg-yellow"
-                                                        ID="TextBoxRequireReason"
-                                                        Text="<%#: BindItem.RequireInternetReason %>" />
+                                        <asp:Panel runat="server" ID="PanelAllowInternet">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-2">需求原因:</label>
+                                                    <div class="col-md-10">
+                                                        <asp:TextBox
+                                                            runat="server"
+                                                            Enabled="False"
+                                                            CssClass="form-control bg-yellow"
+                                                            ID="TextBoxRequireReason"
+                                                            Text="<%#: BindItem.RequireInternetReason %>" />
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                        </asp:Panel>
                                     </td>
                                 </tr>
                                 <tr>
@@ -188,30 +217,35 @@
                                             </label>
                                         </div>
                                     </th>
-                                    <th>
-                                        <div class="form-horizontal">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2">需求:</label>
-                                                <div class="col-md-10">
-                                                    <asp:TextBox
-                                                        runat="server"
-                                                        ID="TextBoxExtraEnroll"
-                                                        CssClass="form-control bg-yellow"
-                                                        Text="<%#: BindItem.ExtraEnroll %>" />
+                                    <td>
+                                        <asp:Panel runat="server" ID="PanelIsExtraEnroll">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-2">需求:</label>
+                                                    <div class="col-md-10">
+                                                        <asp:TextBox
+                                                            runat="server"
+                                                            ID="TextBoxExtraEnroll"
+                                                            Enabled="False"
+                                                            CssClass="form-control bg-yellow"
+                                                            Text="<%#: BindItem.ExtraEnroll %>" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-2">原因:</label>
+                                                    <div class="col-md-10">
+                                                        <asp:TextBox
+                                                            runat="server"
+                                                            ID="TextBoxExtraEnrollReason"
+                                                            Enabled="False"
+                                                            CssClass="form-control bg-yellow"
+                                                            Text="<%#: BindItem.ExtraEnrollReason %>" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2">原因:</label>
-                                                <div class="col-md-10">
-                                                    <asp:TextBox
-                                                        runat="server"
-                                                        ID="TextBoxExtraEnrollReason"
-                                                        CssClass="form-control bg-yellow"
-                                                        Text="<%#: BindItem.ExtraEnrollReason %>" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </th>
+
+                                        </asp:Panel>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
