@@ -352,6 +352,7 @@
     <Content Include="UCSideBar.ascx" />
     <Content Include="UCSideBar1.ascx" />
     <Content Include="UserPages\AccountEnrollForm.aspx" />
+    <Content Include="UserPages\DevicesManatain.aspx" />
     <Content Include="UserPages\RepairForm.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -494,6 +495,13 @@
     </Compile>
     <Compile Include="UserPages\AccountEnrollForm.aspx.designer.cs">
       <DependentUpon>AccountEnrollForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPages\DevicesManatain.aspx.cs">
+      <DependentUpon>DevicesManatain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPages\DevicesManatain.aspx.designer.cs">
+      <DependentUpon>DevicesManatain.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPages\RepairForm.aspx.cs">
       <DependentUpon>RepairForm.aspx</DependentUpon>

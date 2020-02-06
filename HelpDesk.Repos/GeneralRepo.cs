@@ -10,15 +10,21 @@
 namespace HelpDesk.Repos
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Data;
 
     /// <summary>
     /// The general repo.
     /// </summary>
-    public class GeneralRepo : IDisposable
+    /// <typeparam name="T">
+    /// T is class
+    /// </typeparam>
+    public class GeneralRepo<T,U> : IDisposable
+        where T : class where U : class, new()
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GeneralRepo"/> class.
+        /// Initializes a new instance of the <see cref="GeneralRepo{T,U}"/> class.
         /// </summary>
         /// <param name="conn">
         /// The conn.
@@ -32,6 +38,55 @@ namespace HelpDesk.Repos
         /// Gets the conn.
         /// </summary>
         protected IDbConnection Conn { get; }
+
+        /// <summary>
+        /// The get list.
+        /// </summary>
+        /// <param name="searchViewModel">
+        /// The search view model.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IList"/>.
+        /// </returns>
+        public virtual IList<T> GetList(U searchViewModel)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// The update.
+        /// </summary>
+        /// <param name="obj">
+        /// The obj.
+        /// </param>
+        public virtual void Update(T obj)
+        {
+
+        }
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="key">
+        /// The key.
+        /// </param>
+        public virtual void Delete(object key)
+        {
+            }
+
+        /// <summary>
+        /// The get.
+        /// </summary>
+        /// <param name="searchViewModel">
+        /// The search view model.
+        /// </param>
+        /// <returns>
+        /// The <see cref="T"/>.
+        /// </returns>
+        public virtual T Get(U searchViewModel)
+        {
+            return null;
+        }
 
         /// <summary>
         /// Gets or sets the query string.

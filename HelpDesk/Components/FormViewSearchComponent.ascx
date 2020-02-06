@@ -49,7 +49,8 @@
                 </div>
                 <div class="box-footer">
                     <asp:LinkButton runat="server" CssClass="btn btn-info btn-flat running2">
-                        <i class="fa fa fa-search"></i><asp:Literal runat="server" ID="LiteralButtonSearch" meta:resourcekey="LiteralButtonSearch"></asp:Literal>
+                        <i class="fa fa fa-search"></i>
+                        <asp:Literal runat="server" ID="LiteralButtonSearch" meta:resourcekey="LiteralButtonSearch"/>
                     </asp:LinkButton>
                 </div>
             </InsertItemTemplate>

@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountEnrollViewModel.cs" />
+    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="DeviceViewModel.cs" />
     <Compile Include="FormSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

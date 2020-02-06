@@ -44,11 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceRepo.cs" />
     <Compile Include="GeneralRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Models\HelpDesk.Models.csproj">
+      <Project>{2db56e5e-2521-484b-885b-d9c85751491e}</Project>
+      <Name>HelpDesk.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.ViewModels\HelpDesk.ViewModels.csproj">
+      <Project>{c2876e55-b450-46c9-899a-e19fce56c35b}</Project>
+      <Name>HelpDesk.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

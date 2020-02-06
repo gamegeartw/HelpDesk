@@ -15,7 +15,8 @@ namespace HelpDesk.ViewModels
     /// <summary>
     /// The form search view model.
     /// </summary>
-    public class FormSearchViewModel
+    [Serializable]
+    public class FormSearchViewModel : BaseViewModel
     {
         /// <summary>
         /// Gets or sets the doc no.

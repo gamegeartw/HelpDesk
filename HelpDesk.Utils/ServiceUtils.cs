@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ServiceUtils.cs" company="NAFCO">
+//   HelpDesk 
+// </copyright>
+// <summary>
+//   Defines the ServiceUtils type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace HelpDesk.Utils
 {
+    using System.Configuration;
+    using System.Data;
+
+    /// <summary>
+    /// The service utils.
+    /// </summary>
     public static class ServiceUtils
     {
         /// <summary>
@@ -25,6 +34,31 @@ namespace HelpDesk.Utils
             }
 
             return o.ToString();
+        }
+
+        /// <summary>
+        /// The get connection.
+        /// </summary>
+        /// <param name="connName">
+        /// The conn name.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IDbConnection"/>.
+        /// </returns>
+        public static IDbConnection GetConnection(string connName)
+        {
+            var connCollSettings = ConfigurationManager.ConnectionStrings[connName];
+            var factory = System.Data.Common.DbProviderFactories.GetFactory(connCollSettings.ProviderName);
+            
+            var conn = factory.CreateConnection();
+            if (conn != null)
+            {
+                conn.ConnectionString = connCollSettings.ConnectionString;
+                conn.Open();
+                return conn;
+            }
+
+            return null;
         }
     }
 }
