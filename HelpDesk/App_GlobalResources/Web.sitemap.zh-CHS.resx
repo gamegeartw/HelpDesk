@@ -120,4 +120,7 @@
   <data name="rskRootPage.title" xml:space="preserve">
     <value>家目錄</value>
   </data>
+  <data name="rskMeetingForm.title" xml:space="preserve">
+    <value>线上会议</value>
+  </data>
 </root>

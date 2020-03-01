@@ -19,7 +19,7 @@ namespace Resources.Web {
     // 類別透過 ResGen 或 Visual Studio 這類工具產生。
     // 若要加入或移除成員，請編輯您的 .ResX 檔，然後重新執行 ResGen
     // (利用 /str 選項)，或重建 Visual Studio 專案。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class sitemap {
@@ -75,6 +75,15 @@ namespace Resources.Web {
         internal static string rskAccountEnrollForm_title {
             get {
                 return ResourceManager.GetString("rskAccountEnrollForm.title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 線上會議 的當地語系化字串。
+        /// </summary>
+        internal static string rskMeetingForm_title {
+            get {
+                return ResourceManager.GetString("rskMeetingForm.title", resourceCulture);
             }
         }
         

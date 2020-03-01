@@ -123,4 +123,7 @@
   <data name="rskRootPage.description" xml:space="preserve">
     <value>首面</value>
   </data>
+  <data name="rskMeetingForm.title" xml:space="preserve">
+    <value>線上會議</value>
+  </data>
 </root>

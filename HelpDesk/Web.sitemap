@@ -4,6 +4,7 @@
   xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="~/" title=""  description="" resourceKey="rskRootPage" >
         <siteMapNode url="~/UserPages/AccountEnrollForm.aspx" title="" description="" resourceKey="rskAccountEnrollForm" />
+        <siteMapNode url="~/UserPages/MeetingForm.aspx" title="" description="" resourceKey="rskMeetingForm" />
         <siteMapNode url="" title=""  description="" />
     </siteMapNode>
 </siteMap>

@@ -120,4 +120,7 @@
   <data name="rskRootPage.title" xml:space="preserve">
     <value>Root</value>
   </data>
+  <data name="rskMeetingForm.title" xml:space="preserve">
+    <value>MeetingList</value>
+  </data>
 </root>
