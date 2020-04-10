@@ -32,16 +32,25 @@ namespace HelpDesk.Services
         /// Initializes a new instance of the <see cref="DeviceService"/> class.
         /// </summary>
         public DeviceService()
+            : this(new DeviceRepo(ServiceUtils.GetConnection("HelpDesk")))
         {
-            this.SqlConn = ServiceUtils.GetConnection("HelpDesk");
-            this.ERPConn = ServiceUtils.GetConnection("ERP");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeviceService"/> class.
+        /// </summary>
+        /// <param name="repo">
+        /// The repo.
+        /// </param>
+        public DeviceService(DeviceRepo repo)
+        {
             this.Config = new MapperConfiguration(
                 cfg =>
                     {
                         cfg.CreateMap<DeviceViewModel, DeviceModel>();
                     });
             this.IMapper = this.Config.CreateMapper();
-            this.repoDevice = new DeviceRepo(this.SqlConn);
+            this.repoDevice = repo;
         }
 
         /// <summary>

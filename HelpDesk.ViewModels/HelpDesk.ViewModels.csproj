@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountEnrollViewModel.cs" />
+    <Compile Include="ADUserViewModel.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="DeviceViewModel.cs" />
     <Compile Include="FormSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelpDesk.Enums\HelpDesk.Enums.csproj">

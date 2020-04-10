@@ -53,5 +53,17 @@ namespace HelpDesk.Models
         /// 目前進度
         /// </summary>
         public Status Status { get; set; }
+
+        public string Dept { get; set; }
+
+        /// <summary>
+        /// Gets or sets the boss.
+        /// </summary>
+        public string Boss { get; set; }
+
+        /// <summary>
+        /// Gets or sets the boss data.
+        /// </summary>
+        public UserData BossData { get; set; }
     }
 }

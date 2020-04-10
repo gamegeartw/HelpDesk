@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DeviceModel.cs" company="NAFCO">
+//   HelpDesk.Models
+// </copyright>
+// <summary>
+//   The device model.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace HelpDesk.Models
 {
+    using System;
+
     /// <summary>
     /// The device model.
     /// </summary>

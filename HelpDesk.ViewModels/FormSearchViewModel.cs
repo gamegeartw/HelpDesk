@@ -19,6 +19,12 @@ namespace HelpDesk.ViewModels
     public class FormSearchViewModel : BaseViewModel
     {
         /// <summary>
+        /// Gets or sets the search text.
+        /// </summary>
+        [Display(Name = "關鍵字查詢")]
+        public string SearchText { get; set; }
+
+        /// <summary>
         /// Gets or sets the doc no.
         /// </summary>
         [Display(Name = "單據號碼")]
@@ -40,7 +46,7 @@ namespace HelpDesk.ViewModels
         /// Gets or sets the start date.
         /// </summary>
         [Display(Name = "開始日期")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         /// <summary>
         /// Gets or sets the close date.

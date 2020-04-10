@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/" title="首頁"  description="首頁">
+	  <siteMapNode url="#1" title="叫修及申請" description="叫修及申請">
+		  <siteMapNode url="~/OnCall.aspx" title="叫修作業"  description="叫修作業" />
+		  <siteMapNode url="~/Register.aspx" title="帳號申請"  description="帳號申請" />
+		  <siteMapNode url="~/DeviceRequire.aspx" title="設備申請"  description="設備申請" />
+	  </siteMapNode>
+	  <siteMapNode url="#2" title="管理員作業" description="管理員作業" roles="admin">
+		  <siteMapNode url="~/Admins/UserManager.aspx" title="網站使用者管理"  description="網站使用者管理" roles="admin" />
+		  <siteMapNode url="~/Admins/ADUserManager.aspx" title="AD使用者管理"  description="AD使用者管理" roles="admin" />
+		  <siteMapNode url="~/Admins/Properties.aspx" title="後台參數管理"  description="AD後台參數管理" roles="admin" />
+	  </siteMapNode>
+  </siteMapNode>
+
+
+</siteMap>

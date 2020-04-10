@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E923FC1-510E-4BBA-B1BC-D96CD24E04CB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HelpDesk.Web</RootNamespace>
+    <AssemblyName>HelpDesk.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Landpy.ActiveDirectory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4769fd3a76ed42d0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Landpy.ActiveDirectory.1.0.0.6\lib\Landpy.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="admin-lte2.4.10\css\AdminLTE.css" />
+    <Content Include="admin-lte2.4.10\css\AdminLTE.min.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-bootstrap-social.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-bootstrap-social.min.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-fullcalendar.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-fullcalendar.min.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-select2.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-select2.min.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-without-plugins.css" />
+    <Content Include="admin-lte2.4.10\css\alt\AdminLTE-without-plugins.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-black-light.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-black-light.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-black.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-black.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-blue-light.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-blue-light.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-blue.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-blue.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-green-light.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-green-light.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-green.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-green.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-purple-light.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-purple-light.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-purple.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-purple.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-red-light.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-red-light.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-red.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-red.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-yellow-light.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-yellow-light.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-yellow.css" />
+    <Content Include="admin-lte2.4.10\css\skins\skin-yellow.min.css" />
+    <Content Include="admin-lte2.4.10\css\skins\_all-skins.css" />
+    <Content Include="admin-lte2.4.10\css\skins\_all-skins.min.css" />
+    <Content Include="admin-lte2.4.10\img\avatar.png" />
+    <Content Include="admin-lte2.4.10\img\avatar04.png" />
+    <Content Include="admin-lte2.4.10\img\avatar2.png" />
+    <Content Include="admin-lte2.4.10\img\avatar3.png" />
+    <Content Include="admin-lte2.4.10\img\avatar5.png" />
+    <Content Include="admin-lte2.4.10\img\credit\american-express.png" />
+    <Content Include="admin-lte2.4.10\img\credit\cirrus.png" />
+    <Content Include="admin-lte2.4.10\img\credit\mastercard.png" />
+    <Content Include="admin-lte2.4.10\img\credit\mestro.png" />
+    <Content Include="admin-lte2.4.10\img\credit\paypal.png" />
+    <Content Include="admin-lte2.4.10\img\credit\paypal2.png" />
+    <Content Include="admin-lte2.4.10\img\credit\visa.png" />
+    <Content Include="admin-lte2.4.10\img\default-50x50.gif" />
+    <Content Include="admin-lte2.4.10\img\icons.png" />
+    <Content Include="admin-lte2.4.10\img\photo1.png" />
+    <Content Include="admin-lte2.4.10\img\photo2.png" />
+    <Content Include="admin-lte2.4.10\img\photo3.jpg" />
+    <Content Include="admin-lte2.4.10\img\photo4.jpg" />
+    <Content Include="admin-lte2.4.10\img\user1-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\img\user2-160x160.jpg" />
+    <Content Include="admin-lte2.4.10\img\user3-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\img\user4-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\img\user5-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\img\user6-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\img\user7-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\img\user8-128x128.jpg" />
+    <Content Include="admin-lte2.4.10\js\adminlte.js" />
+    <Content Include="admin-lte2.4.10\js\adminlte.min.js" />
+    <Content Include="admin-lte2.4.10\js\demo.js" />
+    <Content Include="admin-lte2.4.10\js\pages\dashboard.js" />
+    <Content Include="admin-lte2.4.10\js\pages\dashboard2.js" />
+    <Content Include="Admins\ADUserManager.aspx" />
+    <Content Include="Admins\UserDetail.aspx" />
+    <Content Include="Admins\UserManager.aspx" />
+    <Content Include="Components\ButtonListComponent.ascx" />
+    <Content Include="Components\DeptListComponent.ascx" />
+    <Content Include="Components\FormSearchComponent.ascx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-multiselect.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery.datetimepicker.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\tether\tether-theme-arrows-dark.css" />
+    <Content Include="Content\tether\tether-theme-arrows-dark.min.css" />
+    <Content Include="Content\tether\tether-theme-arrows.css" />
+    <Content Include="Content\tether\tether-theme-arrows.min.css" />
+    <Content Include="Content\tether\tether-theme-basic.css" />
+    <Content Include="Content\tether\tether-theme-basic.min.css" />
+    <Content Include="Content\tether\tether.css" />
+    <Content Include="Content\tether\tether.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Header.ascx" />
+    <Content Include="Images\AppStore_Auth.png" />
+    <Content Include="Images\Background_Login.png" />
+    <Content Include="Images\GooglePlay_Auth.png" />
+    <Content Include="Images\LoginKPI.png" />
+    <Content Include="Images\NafcoLogo.png" />
+    <Content Include="Images\NafcoTitle.png" />
+    <Content Include="Images\NAFCO_Title2.png" />
+    <Content Include="Images\NAFCO_Title3.png" />
+    <Content Include="Images\User.jpg" />
+    <Content Include="Login.aspx" />
+    <Content Include="Scripts\bootstrap-multiselect.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="admin-lte2.4.10\css\adminlte.min.css.map" />
+    <Content Include="admin-lte2.4.10\css\adminlte.css.map" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Admins\Web.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\ExtJs.js" />
+    <Content Include="Scripts\i18n\af.js" />
+    <Content Include="Scripts\i18n\ar.js" />
+    <Content Include="Scripts\i18n\az.js" />
+    <Content Include="Scripts\i18n\bg.js" />
+    <Content Include="Scripts\i18n\bn.js" />
+    <Content Include="Scripts\i18n\bs.js" />
+    <Content Include="Scripts\i18n\ca.js" />
+    <Content Include="Scripts\i18n\cs.js" />
+    <Content Include="Scripts\i18n\da.js" />
+    <Content Include="Scripts\i18n\de.js" />
+    <Content Include="Scripts\i18n\dsb.js" />
+    <Content Include="Scripts\i18n\el.js" />
+    <Content Include="Scripts\i18n\en.js" />
+    <Content Include="Scripts\i18n\es.js" />
+    <Content Include="Scripts\i18n\et.js" />
+    <Content Include="Scripts\i18n\eu.js" />
+    <Content Include="Scripts\i18n\fa.js" />
+    <Content Include="Scripts\i18n\fi.js" />
+    <Content Include="Scripts\i18n\fr.js" />
+    <Content Include="Scripts\i18n\gl.js" />
+    <Content Include="Scripts\i18n\he.js" />
+    <Content Include="Scripts\i18n\hi.js" />
+    <Content Include="Scripts\i18n\hr.js" />
+    <Content Include="Scripts\i18n\hsb.js" />
+    <Content Include="Scripts\i18n\hu.js" />
+    <Content Include="Scripts\i18n\hy.js" />
+    <Content Include="Scripts\i18n\id.js" />
+    <Content Include="Scripts\i18n\is.js" />
+    <Content Include="Scripts\i18n\it.js" />
+    <Content Include="Scripts\i18n\ja.js" />
+    <Content Include="Scripts\i18n\ka.js" />
+    <Content Include="Scripts\i18n\km.js" />
+    <Content Include="Scripts\i18n\ko.js" />
+    <Content Include="Scripts\i18n\lt.js" />
+    <Content Include="Scripts\i18n\lv.js" />
+    <Content Include="Scripts\i18n\mk.js" />
+    <Content Include="Scripts\i18n\ms.js" />
+    <Content Include="Scripts\i18n\nb.js" />
+    <Content Include="Scripts\i18n\ne.js" />
+    <Content Include="Scripts\i18n\nl.js" />
+    <Content Include="Scripts\i18n\pl.js" />
+    <Content Include="Scripts\i18n\ps.js" />
+    <Content Include="Scripts\i18n\pt-BR.js" />
+    <Content Include="Scripts\i18n\pt.js" />
+    <Content Include="Scripts\i18n\ro.js" />
+    <Content Include="Scripts\i18n\ru.js" />
+    <Content Include="Scripts\i18n\sk.js" />
+    <Content Include="Scripts\i18n\sl.js" />
+    <Content Include="Scripts\i18n\sq.js" />
+    <Content Include="Scripts\i18n\sr-Cyrl.js" />
+    <Content Include="Scripts\i18n\sr.js" />
+    <Content Include="Scripts\i18n\sv.js" />
+    <Content Include="Scripts\i18n\th.js" />
+    <Content Include="Scripts\i18n\tk.js" />
+    <Content Include="Scripts\i18n\tr.js" />
+    <Content Include="Scripts\i18n\uk.js" />
+    <Content Include="Scripts\i18n\vi.js" />
+    <Content Include="Scripts\i18n\zh-CN.js" />
+    <Content Include="Scripts\i18n\zh-TW.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\tether.js" />
+    <Content Include="Scripts\tether.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="SideBar.ascx" />
+    <Content Include="Signout.aspx" />
+    <Content Include="Site.Master" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admins\ADUserManager.aspx.cs">
+      <DependentUpon>ADUserManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\ADUserManager.aspx.designer.cs">
+      <DependentUpon>ADUserManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\ADUserViewModel.cs" />
+    <Compile Include="Admins\UserDetail.aspx.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\UserDetail.aspx.designer.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admins\UserManager.aspx.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admins\UserManager.aspx.designer.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ButtonListComponent.ascx.cs">
+      <DependentUpon>ButtonListComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\ButtonListComponent.ascx.designer.cs">
+      <DependentUpon>ButtonListComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DeptListComponent.ascx.cs">
+      <DependentUpon>DeptListComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\DeptListComponent.ascx.designer.cs">
+      <DependentUpon>DeptListComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FormSearchComponent.ascx.cs">
+      <DependentUpon>FormSearchComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\FormSearchComponent.ascx.designer.cs">
+      <DependentUpon>FormSearchComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPrincipal.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\HelpDeskEventArgs.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SideBar.ascx.cs">
+      <DependentUpon>SideBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SideBar.ascx.designer.cs">
+      <DependentUpon>SideBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout.aspx.cs">
+      <DependentUpon>Signout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout.aspx.designer.cs">
+      <DependentUpon>Signout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Enums\HelpDesk.Enums.csproj">
+      <Project>{ffb1fedd-8ac3-4e61-8e30-70112ee05ab6}</Project>
+      <Name>HelpDesk.Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Models\HelpDesk.Models.csproj">
+      <Project>{2db56e5e-2521-484b-885b-d9c85751491e}</Project>
+      <Name>HelpDesk.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Services\HelpDesk.Services.csproj">
+      <Project>{5d342632-f9ab-4570-b650-b4c21114d120}</Project>
+      <Name>HelpDesk.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Utils\HelpDesk.Utils.csproj">
+      <Project>{d797ea73-5f57-45f5-94e5-c05298d3e814}</Project>
+      <Name>HelpDesk.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.ViewModels\HelpDesk.ViewModels.csproj">
+      <Project>{c2876e55-b450-46c9-899a-e19fce56c35b}</Project>
+      <Name>HelpDesk.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50349</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50349/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 封裝。請啟用 NuGet 封裝還原，以下載該封裝。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

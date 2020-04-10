@@ -33,8 +33,12 @@
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Landpy.ActiveDirectory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4769fd3a76ed42d0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Landpy.ActiveDirectory.1.0.0.6\lib\Landpy.ActiveDirectory.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADService.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="DeptsService.cs" />
     <Compile Include="DeviceService.cs" />
     <Compile Include="UserDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
