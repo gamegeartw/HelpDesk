@@ -12,6 +12,7 @@ namespace HelpDesk.Web.Admins
     using System;
     using System.Web.ModelBinding;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
 
     using HelpDesk.Models;
     using HelpDesk.Services;
@@ -90,6 +91,39 @@ namespace HelpDesk.Web.Admins
                 this.MetaDescription = "使用者明細";
                 this.FormViewAD.Visible = this.Request.QueryString["type"] == "AD";
             }
+        }
+
+        protected void FormViewAD_OnItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+            // throw new NotImplementedException();
+            try
+            {
+                var txtPwd = this.FormViewAD.FindControl("TextBoxResetPassword") as TextBox;
+                if (txtPwd == null)
+                {
+                    throw new ArgumentNullException(nameof(txtPwd),"密碼不得為空");
+                }
+
+                var @type = this.Service.GetType();
+                var method = @type.GetMethod(e.CommandName);
+                if (method != null)
+                {
+                    var ex = (Exception)method.Invoke(
+                        this.Service,
+                        new object[] { e.CommandArgument, txtPwd.Text.Trim() });
+                    if (ex != null)
+                    {
+                      throw ex;
+                    }
+                    WebUtils.ShowAjaxMessage(this.Page,"作業成功");
+                }
+            }
+            catch (Exception exception)
+            {
+                Logger.Error(exception);
+                this.ModelState.AddModelError("ResetPassword", exception.Message);
+            }
+
         }
     }
 }

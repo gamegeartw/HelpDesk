@@ -144,5 +144,19 @@ namespace HelpDesk.Services
         {
             return UserObject.FindOneBySAMAccountName(this.ADOperator, account);
         }
+
+        public Exception ResetPassword(string account, string password)
+        {
+            var user = this.Get(account);
+            if (user == null)
+            {
+                return new ArgumentNullException(nameof(user), "無此用戶");
+            }
+
+            user.ResetPassword(password);
+            user.Save();
+
+            return null;
+        }
     }
 }
