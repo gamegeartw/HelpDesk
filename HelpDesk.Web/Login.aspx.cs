@@ -69,14 +69,14 @@ namespace HelpDesk.Web
             this.Session.RemoveAll();
             try
             {
-                if (this.ValidateLogin(this.account.Value, this.password.Value))
+                if (this.ValidateLogin(this.account.Value.Trim(), this.password.Value.Trim()))
                 {
                     // 將管理者登入的 Cookie 設定成 Session Cookie
                     bool isPersistent = false;
 
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
                         1,
-                        this.account.Value,
+                        this.account.Value.Trim(),
                         DateTime.Now,
                         DateTime.Now.AddMinutes(30),
                         isPersistent,
@@ -87,6 +87,8 @@ namespace HelpDesk.Web
 
                     // Create the cookie.
                     this.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+                    //FormsAuthentication.RedirectFromLoginPage(this.account.Value.Trim(), false);
 
                     this.Response.Redirect(this.ResolveClientUrl("~/"), true);
                 }

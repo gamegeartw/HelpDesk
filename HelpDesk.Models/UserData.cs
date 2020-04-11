@@ -54,6 +54,9 @@ namespace HelpDesk.Models
         /// </summary>
         public Status Status { get; set; }
 
+        /// <summary>
+        /// Gets or sets the dept.
+        /// </summary>
         public string Dept { get; set; }
 
         /// <summary>

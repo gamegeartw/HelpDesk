@@ -52,6 +52,7 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="DeptsService.cs" />
     <Compile Include="DeviceService.cs" />
+    <Compile Include="ParamsService.cs" />
     <Compile Include="UserDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

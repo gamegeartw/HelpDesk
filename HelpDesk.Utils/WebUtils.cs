@@ -64,5 +64,10 @@ namespace HelpDesk.Utils
             var password = WebConfigurationManager.AppSettings["password"];
             return new ADOperator($"{dc}\\{user}", password, dc);
         }
+
+        public static string GetConnString(string name)
+        {
+            return WebConfigurationManager.ConnectionStrings[name].ConnectionString;
+        }
     }
 }

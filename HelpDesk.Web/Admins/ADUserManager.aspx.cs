@@ -12,7 +12,6 @@ namespace HelpDesk.Web.Admins
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web.Configuration;
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
@@ -21,7 +20,6 @@ namespace HelpDesk.Web.Admins
     using HelpDesk.ViewModels;
     using HelpDesk.Web.Events;
 
-    using Landpy.ActiveDirectory.Core;
     using Landpy.ActiveDirectory.Entity.Object;
 
     using NLog;

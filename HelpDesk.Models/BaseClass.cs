@@ -25,11 +25,11 @@ namespace HelpDesk.Models
         /// <summary>
         /// Gets or sets the start row index.
         /// </summary>
-        public int StartRowIndex { get; set; }
+        public int StartRowIndex { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets the maximum rows.
         /// </summary>
-        public int MaximumRows { get; set; }
+        public int MaximumRows { get; set; } = 1000;
     }
 }

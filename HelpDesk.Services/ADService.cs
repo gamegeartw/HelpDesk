@@ -52,6 +52,9 @@ namespace HelpDesk.Services
         /// <param name="account">
         /// The account.
         /// </param>
+        /// <returns>
+        /// The <see cref="Exception"/>.
+        /// </returns>
         public Exception DisableUser(string account)
         {
             this.UserObject = UserObject.FindOneBySAMAccountName(this.ADOperator, account);
@@ -64,6 +67,7 @@ namespace HelpDesk.Services
             {
                 return new Exception("帳號已停用,不能重覆執行");
             }
+
             this.UserObject.IsEnabled = false;
             this.UserObject.Save();
 
@@ -90,6 +94,9 @@ namespace HelpDesk.Services
         /// <param name="account">
         /// The account.
         /// </param>
+        /// <returns>
+        /// The <see cref="Exception"/>.
+        /// </returns>
         public Exception EnableUser(string account)
         {
             this.UserObject = UserObject.FindOneBySAMAccountName(this.ADOperator, account);
@@ -101,7 +108,6 @@ namespace HelpDesk.Services
             this.UserObject.IsEnabled = true;
             this.UserObject.Save();
             return null;
-
         }
 
         /// <summary>
@@ -110,6 +116,9 @@ namespace HelpDesk.Services
         /// <param name="account">
         /// The account.
         /// </param>
+        /// <returns>
+        /// The <see cref="Exception"/>.
+        /// </returns>
         public Exception Unlock(string account)
         {
             this.UserObject = UserObject.FindOneBySAMAccountName(this.ADOperator, account);
@@ -145,6 +154,18 @@ namespace HelpDesk.Services
             return UserObject.FindOneBySAMAccountName(this.ADOperator, account);
         }
 
+        /// <summary>
+        /// The reset password.
+        /// </summary>
+        /// <param name="account">
+        /// The account.
+        /// </param>
+        /// <param name="password">
+        /// The password.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Exception"/>.
+        /// </returns>
         public Exception ResetPassword(string account, string password)
         {
             var user = this.Get(account);
