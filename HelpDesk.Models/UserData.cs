@@ -68,5 +68,10 @@ namespace HelpDesk.Models
         /// Gets or sets the boss data.
         /// </summary>
         public UserData BossData { get; set; }
+
+        /// <summary>
+        /// 分機號碼
+        /// </summary>
+        public string ExtNumber { get; set; }
     }
 }

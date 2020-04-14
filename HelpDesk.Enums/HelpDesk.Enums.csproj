@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADType.cs" />
     <Compile Include="DisplayAttribute.cs" />
     <Compile Include="ExtraMethods.cs" />
     <Compile Include="Status.cs" />

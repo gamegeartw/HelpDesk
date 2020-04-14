@@ -15,6 +15,14 @@
         </div>
         <div class="box-body">
             <div>
+                <%-- <button type="button" class="btn btn-primary btn-flat" data-toggle="modal" data-target="#modal-default-ad"> --%>
+                <%--     <i class="fa fa-user-plus"></i>建立AD帳號 --%>
+                <%-- </button> --%>
+                <%-- <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-default-vpn"> --%>
+                <%--     <i class="fa fa-user-plus"></i>建立VPN帳號 --%>
+                <%-- </button> --%>
+            </div>
+            <div>
                 <asp:DataPager runat="server" ID="DataPager1" PagedControlID="ListViewMain">
                     <Fields>
                         <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
@@ -97,7 +105,125 @@
         </div>
     </div>
     
+    <div class="modal fade" id="modal-default-ad" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <asp:FormView
+                    runat="server"
+                    RenderOuterTable="False"
+                    DefaultMode="Insert"
+                    ID="FormViewAD">
+                    <InsertItemTemplate>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">建立AD帳號</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">登入帳號:</label>
+                                    <div class="col-md-10">
+                                        <asp:TextBox runat="server" ID="TextBoxADAccount" CssClass="form-control bg-yellow"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <asp:LinkButton 
+                                CommandName="Insert" 
+                                runat="server" 
+                                ID="LinkButtonCreateAD" 
+                                OnClientClick="return window.flag=confirm('即將建立AD帳號,是否確定?')"
+                                CssClass="btn btn-flat btn-primary">
+                                <i class="fa fa-user-plus"></i>建立AD帳號
+                            </asp:LinkButton>
 
+                        </div>
+                    </InsertItemTemplate>
+                </asp:FormView>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    
+    <div class="modal fade" id="modal-default-vpn" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <asp:FormView
+                    runat="server"
+                    DefaultMode="Insert"
+                    ItemType="HelpDesk.ViewModels.ADUserViewModel"
+                    InsertMethod="InsertValue"
+                    OnItemInserted="OnItemInserted"
+                    RenderOuterTable="False">
+                    <InsertItemTemplate>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">建立VPN帳號</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">登入帳號:</label>
+                                    <div class="col-md-10">
+                                        <asp:TextBox
+                                            runat="server"
+                                            ID="TextBoxVPNAccount"
+                                            CssClass="form-control bg-yellow"
+                                            Text="<%#: BindItem.Account %>"
+                                            ToolTip="必要欄位(Required)"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">顯示名稱:</label>
+                                    <div class="col-md-10">
+                                        <asp:TextBox
+                                            runat="server"
+                                            ID="TextBoxDisplayName"
+                                            CssClass="form-control bg-yellow"
+                                            Text="<%#: BindItem.DisplayName %>"
+                                            ToolTip="必要欄位(Required)"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">登入密碼:</label>
+                                    <div class="col-md-10">
+                                        <asp:TextBox
+                                            runat="server"
+                                            ID="TextBox1"
+                                            CssClass="form-control bg-yellow"
+                                            Text="<%#: BindItem.Password %>"
+                                            ToolTip="必要欄位(Required)"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                            <asp:LinkButton 
+                                OnClientClick="return window.flag=confirm('即將建立VPN帳號,是否確定?')"
+                                CommandName="Insert" 
+                                runat="server" 
+                                ID="LinkButtonCreateVPN" 
+                                CssClass="btn btn-flat btn-info">
+                                <i class="fa fa-user-plus"></i>建立VPN帳號
+                            </asp:LinkButton>
+
+                        </div>
+                    </InsertItemTemplate>
+                </asp:FormView>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentJs" runat="server">
 </asp:Content>

@@ -11,6 +11,9 @@ namespace HelpDesk.Services
 {
     using System;
     using System.Collections.Generic;
+    using System.DirectoryServices;
+    using HelpDesk.Enums;
+    using HelpDesk.ViewModels;
 
     using Landpy.ActiveDirectory.Core;
     using Landpy.ActiveDirectory.Entity.Object;
@@ -164,7 +167,7 @@ namespace HelpDesk.Services
         /// The password.
         /// </param>
         /// <returns>
-        /// The <see cref="Exception"/>.
+        /// The <see cref="ArgumentNullException"/>.
         /// </returns>
         public Exception ResetPassword(string account, string password)
         {
@@ -178,6 +181,31 @@ namespace HelpDesk.Services
             user.Save();
 
             return null;
+        }
+
+        /// <summary>
+        /// The create user.
+        /// </summary>
+        /// <param name="value">
+        /// The value.
+        /// </param>
+        public void CreateUser(ADUserViewModel value)
+        {
+            using (var ou = OrganizationalUnitObject.FindOneByOU(this.ADOperator, "VPN_List"))
+            {
+                var group = GroupObject.FindOneByCN(ADOperator, "FortiVPN");
+                using (var addUserObject = ou.AddUser(value.Account))
+                {
+                    addUserObject.SAMAccountName = value.Account;
+                    addUserObject.ResetPassword(value.Password);
+                    addUserObject.DisplayName = value.DisplayName;
+                    group.Members.Add(addUserObject.SAMAccountName);
+                    addUserObject.IsEnabled = true;
+                    addUserObject.SetAttributeValue("userAccountControl", 66048);
+                    addUserObject.Save();
+                    group.Save();
+                }
+            }
         }
     }
 }

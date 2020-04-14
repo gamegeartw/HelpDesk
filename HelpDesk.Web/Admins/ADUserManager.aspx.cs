@@ -15,6 +15,7 @@ namespace HelpDesk.Web.Admins
     using System.Web.UI;
     using System.Web.UI.WebControls;
 
+    using HelpDesk.Enums;
     using HelpDesk.Services;
     using HelpDesk.Utils;
     using HelpDesk.ViewModels;
@@ -208,6 +209,34 @@ namespace HelpDesk.Web.Admins
             {
                 this.MetaDescription = "AD用戶管理";
             }
+        }
+
+        public void InsertValue(ADUserViewModel value)
+        {
+            try
+            {
+                if (this.ModelState.IsValid)
+                {
+                    var adOperator = WebUtils.GetAdOperator();
+
+                    using (var service = new ADService(adOperator))
+                    {
+                        value.ADType = ADType.Vpn;
+                        service.CreateUser(value);
+                        WebUtils.ShowAjaxMessage(this.Page, "作業完成");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                this.ModelState.AddModelError("VPN", e.Message);
+            }
+        }
+
+        protected void OnItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            this.ListViewMain.DataBind();
         }
     }
 }
