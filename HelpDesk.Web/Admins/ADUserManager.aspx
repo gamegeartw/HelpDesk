@@ -40,7 +40,7 @@
                 <LayoutTemplate>
                     <table class="table table-hover table-responsive table-bordered">
                         <thead>
-                        <tr>
+                        <tr class="bg-aqua">
                             <th>#</th>
                             <th>帳號</th>
                             <th>顯示名稱</th>

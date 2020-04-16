@@ -69,6 +69,8 @@ namespace HelpDesk.Web
             this.Session.RemoveAll();
             try
             {
+                Logger.Info($"{this.account.Value.Trim()}登入");
+
                 if (this.ValidateLogin(this.account.Value.Trim(), this.password.Value.Trim()))
                 {
                     // 將管理者登入的 Cookie 設定成 Session Cookie
@@ -89,11 +91,15 @@ namespace HelpDesk.Web
                     this.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
 
                     //FormsAuthentication.RedirectFromLoginPage(this.account.Value.Trim(), false);
-
                     this.Response.Redirect(this.ResolveClientUrl("~/"), true);
+                    return;
                 }
 
                 this.ModelState.AddModelError("error", "帳號密碼錯誤");
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+                // ignore
             }
             catch (Exception exception)
             {

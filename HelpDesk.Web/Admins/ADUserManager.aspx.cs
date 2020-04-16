@@ -106,6 +106,7 @@ namespace HelpDesk.Web.Admins
                 var users = this.Service.GetAll();
                 if (this.SearchViewModel != null)
                 {
+                    this.SearchViewModel.SearchText = this.SearchViewModel.SearchText.ToLower().Trim();
                     users = users.Where(
                         m => 
                             m.SAMAccountName.ToLower().Contains(
@@ -166,6 +167,7 @@ namespace HelpDesk.Web.Admins
             {
                 if (e.CommandName == "Detail")
                 {
+                    Logger.Info("查詢使用者明細");
                     this.Response.Redirect(
                         this.Page.ResolveClientUrl($"~/Admins/UserDetail.aspx?account={e.CommandArgument}&type=AD"),
                         true);
@@ -173,6 +175,7 @@ namespace HelpDesk.Web.Admins
                 }
 
                 var @type = this.Service.GetType();
+                Logger.Info($"動作:{e.CommandName},UserId={e.CommandArgument}");
                 var method = @type.GetMethod(e.CommandName);
                 if (method != null)
                 {
@@ -184,6 +187,10 @@ namespace HelpDesk.Web.Admins
                 }
 
                 WebUtils.ShowAjaxMessage(this.Page, "作業已完成");
+            }
+            catch (System.Threading.ThreadAbortException)
+            {
+              // ignore
             }
             catch (Exception exception)
             {

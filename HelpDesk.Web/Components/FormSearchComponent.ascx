@@ -24,6 +24,7 @@
                     <asp:LinkButton runat="server" ID="LinkButtonSubmit" OnClick="LinkButtonSubmit_OnClick" CssClass="btn btn-flat btn-info">
                         <i class="fa fa-search"></i>查詢
                     </asp:LinkButton>
+                    <input type="reset" class="btn btn-default btn-flat"/>
                 </div>
             </div>
 
