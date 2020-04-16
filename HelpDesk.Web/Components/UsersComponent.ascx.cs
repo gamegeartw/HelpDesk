@@ -13,6 +13,7 @@ namespace HelpDesk.Web.Components
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
 
     using HelpDesk.Utils;
 
@@ -27,6 +28,28 @@ namespace HelpDesk.Web.Components
         /// The logger.
         /// </summary>
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// Gets or sets the default values.
+        /// </summary>
+        public string DefaultValues
+        {
+            get
+            {
+                var items = this.ListBoxMain.Items.OfType<ListItem>().Where(m => m.Selected).ToList();
+                if (items.Any())
+                {
+                    return string.Join(",", items.Select(m => m.Value));
+                }
+
+                return string.Empty;
+            }
+
+            set
+            {
+                this.ViewState[nameof(this.DefaultValues)] = value;
+            }
+        }
 
         /// <summary>
         /// The page_ load.
@@ -54,7 +77,14 @@ namespace HelpDesk.Web.Components
                 var result = new List<KeyValuePair<string, string>>();
                 foreach (var model in list.OrderBy(m => m.EMPNO))
                 {
-                    result.Add(new KeyValuePair<string, string>($"{model.EMPNO}-{model.NAME}", model.EMPNO));
+                    var mail = model.CC_MAIL_NAME;
+                    var engName = string.Empty;
+                    if (!string.IsNullOrWhiteSpace(mail))
+                    {
+                        engName = mail.Split('@')[0];
+                    }
+
+                    result.Add(new KeyValuePair<string, string>($"{model.EMPNO}-{model.NAME}({engName})", model.EMPNO));
                 }
 
                 return result;
@@ -66,6 +96,22 @@ namespace HelpDesk.Web.Components
             }
 
             return null;
+        }
+
+        protected void ListBoxMain_OnDataBound(object sender, EventArgs e)
+        {
+            var values = (string)this.ViewState[nameof(this.DefaultValues)];
+            List<string> selectedItems = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(values))
+            {
+                selectedItems = values.Split(',').ToList();
+            }
+
+            foreach (var li in this.ListBoxMain.Items.OfType<ListItem>())
+            {
+                li.Selected = selectedItems.Any(m => m.Equals(li.Value) || li.Text.ToLower().Contains(m.ToLower()));
+            }
         }
     }
 }

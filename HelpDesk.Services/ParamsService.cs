@@ -24,7 +24,7 @@ namespace HelpDesk.Services
         /// <summary>
         /// The repo.
         /// </summary>
-        private ParamsRepo repo;
+        private readonly ParamsRepo repo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ParamsService"/> class.
@@ -71,6 +71,20 @@ namespace HelpDesk.Services
         public IEnumerable<ParamData> GetList(FormSearchViewModel searchViewModel)
         {
             return this.repo.GetList(searchViewModel);
+        }
+
+        /// <summary>
+        /// The get list.
+        /// </summary>
+        /// <param name="program">
+        /// The program.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IEnumerable{ParamData}"/>.
+        /// </returns>
+        public IEnumerable<ParamData> GetList(string program)
+        {
+            return this.repo.GetList(program);
         }
 
         /// <summary>

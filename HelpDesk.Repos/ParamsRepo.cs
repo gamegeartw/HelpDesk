@@ -12,7 +12,6 @@ namespace HelpDesk.Repos
     using System.Collections.Generic;
     using System.Data;
     using System.Text;
-    using System.Threading;
 
     using Dapper;
 
@@ -115,6 +114,22 @@ namespace HelpDesk.Repos
 
             var sql = string.Format(this.TemplatePageString, sb, nameof(ParamData.Id));
             return this.Conn.Query<ParamData>(sql, searchViewModel);
+        }
+
+        /// <summary>
+        /// The get list.
+        /// </summary>
+        /// <param name="program">
+        /// The program.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IEnumerable{ParamData}"/>.
+        /// </returns>
+        public IEnumerable<ParamData> GetList(string program)
+        {
+            var sb = new StringBuilder(this.queryTemplate);
+            sb.AppendLine(" And Program=@program ");
+            return this.Conn.Query<ParamData>(sb.ToString(), new { program });
         }
     }
 }

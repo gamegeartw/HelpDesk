@@ -15,16 +15,17 @@
             <asp:FormView
                 ItemType="HelpDesk.ViewModels.ServiceOnCallViewModel"
                 runat="server"
+                OnItemCreated="FormViewMain_OnItemCreated"
                 InsertMethod="InsertValue"
                 DefaultMode="Insert"
-
+                RenderOuterTable="False"
                 ID="FormViewMain">
                 <InsertItemTemplate>
                     <div class="form-horizontal">
                         <div class="form-group">
                             <label class="control-label col-md-2">叫修單位(Dept)</label>
                             <div class="col-md-10">
-                                <uc1:DeptListComponent runat="server" ID="DeptListComponent" />
+                                <uc1:DeptListComponent runat="server" ID="DeptListComponent" DefaultValues="<%#: BindItem.EmpNo %>" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,6 +38,12 @@
                             <label class="control-label col-md-2">叫修項目(Type)</label>
                             <div class="col-md-10">
                                 <uc1:OnCallComponent runat="server" ID="OnCallComponent" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">叫修原因(Reason)</label>
+                            <div class="col-md-10">
+                                <asp:TextBox runat="server" ID="TextBoxOnCallReason" Text="<%#: BindItem.OnCallReason %>" TextMode="MultiLine" Rows="5" CssClass="form-control"/>
                             </div>
                         </div>
                     </div>

@@ -4,5 +4,6 @@
     DataTextField="key"
     DataValueField="value"
     SelectionMode="Single"
+    OnDataBound="ListBoxMain_OnDataBound"
     SelectMethod="SelectValue"
     runat="server"/>

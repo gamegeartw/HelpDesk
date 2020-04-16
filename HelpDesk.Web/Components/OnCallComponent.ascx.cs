@@ -11,7 +11,12 @@ namespace HelpDesk.Web.Components
 {
     using System;
     using System.Collections;
+    using System.Data.SqlClient;
     using System.Web.UI;
+
+    using HelpDesk.Services;
+    using HelpDesk.Utils;
+    using HelpDesk.ViewModels;
 
     using NLog;
 
@@ -24,6 +29,23 @@ namespace HelpDesk.Web.Components
         /// The logger.
         /// </summary>
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// The service.
+        /// </summary>
+        private Services.ParamsService Service { get; set; }
+
+
+        public OnCallComponent()
+        {
+            this.Service = new ParamsService(new SqlConnection(WebUtils.GetConnString("Intranet_DB")));
+        }
+
+        public override void Dispose()
+        {
+            this.Service?.Dispose();
+            base.Dispose();
+        }
 
         /// <summary>
         /// The page_ load.
@@ -43,7 +65,7 @@ namespace HelpDesk.Web.Components
         {
             try
             {
-                
+                this.Service.GetList("OnCall");
             }
             catch (Exception e)
             {

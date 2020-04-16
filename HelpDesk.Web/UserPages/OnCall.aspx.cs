@@ -12,6 +12,8 @@ namespace HelpDesk.Web.UserPages
     using System;
     using System.Web.UI;
 
+    using HelpDesk.Web.Components;
+
     using NLog;
 
     /// <summary>
@@ -39,6 +41,15 @@ namespace HelpDesk.Web.UserPages
             {
                 Console.WriteLine(e);
                 throw;
+            }
+        }
+
+        protected void FormViewMain_OnItemCreated(object sender, EventArgs e)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var uc = (UsersComponent)this.FormViewMain.FindControl("UsersComponent");
+                uc.DefaultValues = User.Identity.Name;
             }
         }
     }
