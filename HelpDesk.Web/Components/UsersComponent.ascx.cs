@@ -1,24 +1,27 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="OnCallComponent.ascx.cs" company="NAFCO">
+// <copyright file="UsersComponent.ascx.cs" company="NAFCO">
 //   HelpDesk.Web
 // </copyright>
 // <summary>
-//   The on call component.
+//   The users component.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace HelpDesk.Web.Components
 {
     using System;
-    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Web.UI;
+
+    using HelpDesk.Utils;
 
     using NLog;
 
     /// <summary>
-    /// The on call component.
+    /// The users component.
     /// </summary>
-    public partial class OnCallComponent : UserControl
+    public partial class UsersComponent : UserControl
     {
         /// <summary>
         /// The logger.
@@ -39,16 +42,27 @@ namespace HelpDesk.Web.Components
 
         }
 
-        public IEnumerable SelectList()
+        public IEnumerable<KeyValuePair<string,string>> SelectValue()
         {
             try
             {
-                
+                var list = WebUtils.GetWebAPI<IEnumerable<ViewModels.EmployeeViewModel>>(
+                    WebUtils.GetWebAPIUrl(),
+                    "Users",
+                    "GET",
+                    null);
+                var result = new List<KeyValuePair<string, string>>();
+                foreach (var model in list.OrderBy(m => m.EMPNO))
+                {
+                    result.Add(new KeyValuePair<string, string>($"{model.EMPNO}-{model.NAME}", model.EMPNO));
+                }
+
+                return result;
             }
             catch (Exception e)
             {
                 Logger.Error(e);
-                this.Page.ModelState.AddModelError("OnCall", e.Message);
+                this.Page.ModelState.AddModelError("Employee", e.Message);
             }
 
             return null;

@@ -197,6 +197,7 @@
     <Content Include="Components\DeptListComponent.ascx" />
     <Content Include="Components\FormSearchComponent.ascx" />
     <Content Include="Components\OnCallComponent.ascx" />
+    <Content Include="Components\UsersComponent.ascx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-multiselect.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -445,6 +446,12 @@
     </Compile>
     <Compile Include="Components\OnCallComponent.ascx.designer.cs">
       <DependentUpon>OnCallComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\UsersComponent.ascx.cs">
+      <DependentUpon>UsersComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\UsersComponent.ascx.designer.cs">
+      <DependentUpon>UsersComponent.ascx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
