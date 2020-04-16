@@ -10,13 +10,13 @@
 namespace HelpDesk.Web.Components
 {
     using System;
-    using System.Collections;
+    using System.Collections.Generic;
     using System.Data.SqlClient;
+    using System.Linq;
     using System.Web.UI;
 
     using HelpDesk.Services;
     using HelpDesk.Utils;
-    using HelpDesk.ViewModels;
 
     using NLog;
 
@@ -31,20 +31,51 @@ namespace HelpDesk.Web.Components
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
-        /// The service.
+        /// Initializes a new instance of the <see cref="OnCallComponent"/> class.
         /// </summary>
-        private Services.ParamsService Service { get; set; }
-
-
         public OnCallComponent()
         {
             this.Service = new ParamsService(new SqlConnection(WebUtils.GetConnString("Intranet_DB")));
         }
 
+        /// <summary>
+        /// The service.
+        /// </summary>
+        private ParamsService Service { get; }
+
+        /// <summary>
+        /// The dispose.
+        /// </summary>
         public override void Dispose()
         {
             this.Service?.Dispose();
             base.Dispose();
+        }
+
+        /// <summary>
+        /// The select list.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerable{KeyValuePair}"/>.
+        /// </returns>
+        public IEnumerable<KeyValuePair<string, string>> SelectList()
+        {
+            var result = new List<KeyValuePair<string, string>>();
+            try
+            {
+                var list = this.Service.GetList("OnCall");
+                foreach (var data in list)
+                {
+                    result.Add(new KeyValuePair<string, string>($"{data.Data}-{data.Key}", data.Data));
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                this.Page.ModelState.AddModelError("OnCall", e.Message);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -58,22 +89,6 @@ namespace HelpDesk.Web.Components
         /// </param>
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        public IEnumerable SelectList()
-        {
-            try
-            {
-                this.Service.GetList("OnCall");
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                this.Page.ModelState.AddModelError("OnCall", e.Message);
-            }
-
-            return null;
         }
     }
 }

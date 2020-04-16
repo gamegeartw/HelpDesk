@@ -50,8 +50,8 @@ namespace HelpDesk.Repos
         /// </returns>
         public ParamData Get(int id)
         {
-            var sql = $"{queryTemplate} And Id=@id";
-            return this.Conn.QueryFirstOrDefault<ParamData>(sql, new { id });
+            this.sql = $"{queryTemplate} And Id=@id";
+            return this.Conn.QueryFirstOrDefault<ParamData>(this.sql, new { id });
         }
 
         /// <summary>
@@ -62,8 +62,8 @@ namespace HelpDesk.Repos
         /// </param>
         public void Insert(ParamData value)
         {
-            var sql = "Insert into PARAM_DATAS ([Program],[Key],[Data],[IsEnable]) values (@Program,@Key,@Data,@IsEnable)";
-            this.Conn.Execute(sql, value);
+            this.sql = "Insert into PARAM_DATAS ([Program],[Key],[Data],[IsEnable]) values (@Program,@Key,@Data,@IsEnable)";
+            this.Conn.Execute(this.sql, value);
         }
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace HelpDesk.Repos
         /// </param>
         public new void Update(ParamData value)
         {
-            var sql = "Update PARAM_DATAS Set Key = @Key,Data=@Data,IsEnable=@IsEnable Where Id=@Id";
-            this.Conn.Execute(sql, value);
+            this.sql = "Update PARAM_DATAS Set Key = @Key,Data=@Data,IsEnable=@IsEnable Where Id=@Id";
+            this.Conn.Execute(this.sql, value);
         }
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace HelpDesk.Repos
         /// </param>
         public void Delete(int id)
         {
-            var sql = "Delete PARAM_DATAS Where Id=@id";
-            this.Conn.Execute(sql, new { id });
+            this.sql = "Delete PARAM_DATAS Where Id=@id";
+            this.Conn.Execute(this.sql, new { id });
         }
 
         /// <summary>
@@ -112,8 +112,8 @@ namespace HelpDesk.Repos
                 }
             }
 
-            var sql = string.Format(this.TemplatePageString, sb, nameof(ParamData.Id));
-            return this.Conn.Query<ParamData>(sql, searchViewModel);
+            this.sql = string.Format(this.TemplatePageString, sb, nameof(ParamData.Id));
+            return this.Conn.Query<ParamData>(this.sql, searchViewModel);
         }
 
         /// <summary>
@@ -129,6 +129,7 @@ namespace HelpDesk.Repos
         {
             var sb = new StringBuilder(this.queryTemplate);
             sb.AppendLine(" And Program=@program ");
+            sb.AppendLine(" Order By Data ");
             return this.Conn.Query<ParamData>(sb.ToString(), new { program });
         }
     }

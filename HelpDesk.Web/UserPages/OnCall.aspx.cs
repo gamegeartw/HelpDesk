@@ -12,6 +12,8 @@ namespace HelpDesk.Web.UserPages
     using System;
     using System.Web.UI;
 
+    using HelpDesk.Utils;
+    using HelpDesk.ViewModels;
     using HelpDesk.Web.Components;
 
     using NLog;
@@ -28,19 +30,25 @@ namespace HelpDesk.Web.UserPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+            {
+                this.MetaDescription = "叫修作業";
+            }
         }
 
-        public void InsertValue()
+        public void InsertValue(ServiceOnCallViewModel value)
         {
             try
             {
-
+                if (this.ModelState.IsValid)
+                {
+                    WebUtils.ShowAjaxMessage(this.Page, "作業成功");
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                Logger.Error(e);
+                this.ModelState.AddModelError("error", e.Message);
             }
         }
 

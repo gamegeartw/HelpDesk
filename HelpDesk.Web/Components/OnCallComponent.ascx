@@ -4,4 +4,5 @@
     DataValueField="value"
     CssClass="form-control"
     SelectMethod="SelectList"
+    ID="DropDownListMain"
     runat="server"/>

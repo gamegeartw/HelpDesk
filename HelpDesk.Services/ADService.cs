@@ -11,8 +11,7 @@ namespace HelpDesk.Services
 {
     using System;
     using System.Collections.Generic;
-    using System.DirectoryServices;
-    using HelpDesk.Enums;
+
     using HelpDesk.ViewModels;
 
     using Landpy.ActiveDirectory.Core;
