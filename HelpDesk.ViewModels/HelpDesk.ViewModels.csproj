@@ -45,8 +45,10 @@
     <Compile Include="ADUserViewModel.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="DeviceViewModel.cs" />
+    <Compile Include="EmployeeViewModel.cs" />
     <Compile Include="FormSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceOnCallViewModel.cs" />
     <Compile Include="UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

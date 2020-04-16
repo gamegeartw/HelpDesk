@@ -16,6 +16,7 @@ namespace HelpDesk.Web.Components
     using System.Web.UI.WebControls;
 
     using HelpDesk.Models;
+    using HelpDesk.Utils;
 
     using NLog;
 
@@ -82,6 +83,7 @@ namespace HelpDesk.Web.Components
         {
             try
             {
+                return WebUtils.GetWebAPI<IEnumerable<Dept>>(WebUtils.GetWebAPIUrl(), "Depts", "GET", null);
             }
             catch (Exception e)
             {

@@ -4,4 +4,6 @@
     OnDataBound="ListBoxMain_OnDataBound"
     ItemType="HelpDesk.Models.Dept"
     SelectMethod="SelectDepts"
+    DataTextField="DisplayName"
+    DataValueField="DeptNo"
     ID="ListBoxMain"/>
