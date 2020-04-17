@@ -34,9 +34,9 @@ namespace HelpDesk.Enums
 
                 foreach (FieldInfo item in fields)
                 {
-                    DisplayAttribute t = 
-                        (DisplayAttribute)Attribute
-                            .GetCustomAttribute(item, typeof(DisplayAttribute));
+                    EnumDisplayAttribute t = 
+                        (EnumDisplayAttribute)Attribute
+                            .GetCustomAttribute(item, typeof(EnumDisplayAttribute));
                     if (t != null)
                     {
                         return t.Name;

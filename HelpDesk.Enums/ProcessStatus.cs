@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Status.cs" company="NAFCO">
+// <copyright file="ProcessStatus.cs" company="NAFCO">
 //   HelpDesk.Enums
 // </copyright>
 // <summary>
@@ -12,36 +12,48 @@ namespace HelpDesk.Enums
     /// <summary>
     /// 處理進度
     /// </summary>
-    public enum Status
+    public enum ProcessStatus
     {
         /// <summary>
         /// The none.
         /// </summary>
-        [Display("未設定")]
+        [EnumDisplay("未設定")]
         None = 0,
 
         /// <summary>
-        /// The enroll.
+        /// 已申請
         /// </summary>
-        [Display("已申請")]
-        Enroll = 1,
+        [EnumDisplay("已申請")]
+        Enroll,
 
         /// <summary>
-        /// The process.
+        /// 處理中
         /// </summary>
-        [Display("處理中")]
-        Process = 2,
+        [EnumDisplay("處理中")]
+        Process,
+
+        /// <summary>
+        /// 送修中
+        /// </summary>
+        [EnumDisplay("送修中")]
+        OnService,
+
+        /// <summary>
+        /// 送修結束
+        /// </summary>
+        [EnumDisplay("送修結束")]
+        OnServiceFinish,
 
         /// <summary>
         /// The finish.
         /// </summary>
-        [Display("已完成")]
-        Finish = 3,
+        [EnumDisplay("已完成")]
+        Finish,
 
         /// <summary>
         /// The rollback.
         /// </summary>
-        [Display("退件")]
-        Rollback = 4,
+        [EnumDisplay("退件")]
+        Rollback,
     }
 }

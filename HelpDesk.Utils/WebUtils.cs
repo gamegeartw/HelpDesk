@@ -118,7 +118,7 @@ namespace HelpDesk.Utils
             {
                 foreach (var pair in paramList)
                 {
-                    request.AddUrlSegment(pair.Key, pair.Value);
+                    request.AddQueryParameter(pair.Key, (string)pair.Value);
                 }
             }
 

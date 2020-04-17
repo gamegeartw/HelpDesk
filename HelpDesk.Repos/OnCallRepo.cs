@@ -66,5 +66,31 @@ namespace HelpDesk.Repos
             sb.AppendLine($" ,{nameof(obj.SignPath)} = @{nameof(obj.SignPath)} ");
             sb.AppendLine(" Where Id=@Id");
         }
+
+        public void Insert(OnCallModel data)
+        {
+            this.sql = $@"
+Insert into HELPDESK_ONCALLS (
+{data.DocNo}
+,{data.DeptNo}
+,{data.DeptName}
+,{data.EmpNo}
+,{data.EmpName}
+,{data.CreateTime}
+,{data.OnCallType}
+,{data.OnCallReason}
+) values
+(
+ @{data.DocNo}
+,@{data.DeptNo}
+,@{data.DeptName}
+,@{data.EmpNo}
+,@{data.EmpName}
+,@{data.CreateTime}
+,@{data.OnCallType}
+,@{data.OnCallReason}
+)";
+            this.Conn.Execute(this.sql, data);
+        }
     }
 }

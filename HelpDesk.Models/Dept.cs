@@ -29,9 +29,14 @@ namespace HelpDesk.Models
         public string DeptName_C { get; set; }
 
         /// <summary>
+        /// Gets or sets the dept name_ e.
+        /// </summary>
+        public string DeptName_E { get; set; }
+
+        /// <summary>
         /// The display name.
         /// </summary>
         [Display(Name = "顯示名稱")]
-        public string DisplayName => $"{DeptNo}-{DeptName_C}";
+        public string DisplayName => $"{DeptNo}-{DeptName_C}({DeptName_E})";
     }
 }

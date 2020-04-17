@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="DisplayAttribute.cs" company="NAFCO">
+// <copyright file="EnumDisplayAttribute.cs" company="NAFCO">
 //   HelpDesk.Enums
 // </copyright>
 // <summary>
@@ -14,9 +14,15 @@ namespace HelpDesk.Enums
     /// <summary>
     /// The display attribute.
     /// </summary>
-    public class DisplayAttribute : Attribute
+    public class EnumDisplayAttribute : Attribute
     {
-        public DisplayAttribute(string name)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EnumDisplayAttribute"/> class.
+        /// </summary>
+        /// <param name="name">
+        /// The name.
+        /// </param>
+        public EnumDisplayAttribute(string name)
         {
             this.Name = name;
         }

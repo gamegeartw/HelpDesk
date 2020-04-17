@@ -39,6 +39,22 @@ namespace HelpDesk.Web.Components
         }
 
         /// <summary>
+        /// Gets or sets the default value.
+        /// </summary>
+        public string DefaultValue
+        {
+            get
+            {
+                return this.DropDownListMain.SelectedValue;
+            }
+
+            set
+            {
+                this.DropDownListMain.SelectedValue = value;
+            }
+        }
+
+        /// <summary>
         /// The service.
         /// </summary>
         private ParamsService Service { get; }

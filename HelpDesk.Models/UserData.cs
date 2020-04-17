@@ -52,7 +52,7 @@ namespace HelpDesk.Models
         /// <summary>
         /// 目前進度
         /// </summary>
-        public Status Status { get; set; }
+        public ProcessStatus Status { get; set; }
 
         /// <summary>
         /// Gets or sets the dept.

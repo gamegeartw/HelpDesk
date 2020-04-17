@@ -10,7 +10,11 @@
 namespace HelpDesk.Models
 {
     using System;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    using HelpDesk.Enums;
 
     /// <summary>
     /// The on call model.
@@ -74,10 +78,16 @@ namespace HelpDesk.Models
         public string OnCallReason { get; set; }
 
         /// <summary>
+        /// Gets or sets the mail list.
+        /// </summary>
+        [Display(Name = "郵件清單")]
+        public string MailList { get; set; }
+
+        /// <summary>
         /// 建檔時間
         /// </summary>
         [Display(Name = "建檔時間")]
-        public DateTime CreateTime { get; set; }
+        public DateTime CreateTime { get; set; } = DateTime.Now;
 
         /// <summary>
         /// 結案時間
@@ -86,15 +96,33 @@ namespace HelpDesk.Models
         public DateTime? CloseTime { get; set; }
 
         /// <summary>
+        /// 送修時間
+        /// </summary>
+        [Display(Name = "送修時間")]
+        public DateTime? OnServiceTime { get; set; }
+
+        /// <summary>
+        /// 送修結束時間
+        /// </summary>
+        [Display(Name = "送修結束時間")]
+        public DateTime? OnServiceFinishTime { get; set; }
+
+        /// <summary>
+        /// 送修人員
+        /// </summary>
+        [Display(Name = "送修人員")]
+        public string OnServiceUser { get; set; }
+
+        /// <summary>
         /// 處理人員
         /// </summary>
         [Display(Name = "處理人員")]
         public string ProcessUser { get; set; }
 
         /// <summary>
-        /// 處理時間(分鐘)
+        /// 花費工時(分鐘)
         /// </summary>
-        [Display(Name = "處理時間(分鐘)")]
+        [Display(Name = "花費工時(分鐘)")]
         public double ProcessTime { get; set; }
 
         /// <summary>
@@ -106,8 +134,20 @@ namespace HelpDesk.Models
         /// <summary>
         /// 負責人確認
         /// </summary>
-        [Display(Name = "負責人確認")]
+        [Display(Name = "驗收簽名")]
         public string CommitUser { get; set; }
+
+        /// <summary>
+        /// Gets or sets the manager.
+        /// </summary>
+        [Display(Name = "資訊主管簽名")]
+        public string Manager { get; set; }
+
+        /// <summary>
+        /// 結案狀態
+        /// </summary>
+        [DefaultValue(ProcessStatus.None)]
+        public ProcessStatus ProcessStatus { get; set; } = ProcessStatus.None;
 
         /// <summary>
         /// 處理經過

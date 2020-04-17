@@ -52,6 +52,11 @@ namespace HelpDesk.Web.Components
         }
 
         /// <summary>
+        /// Gets the list items.
+        /// </summary>
+        public IEnumerable<ListItem> ListItems => this.ListBoxMain.Items.OfType<ListItem>();
+
+        /// <summary>
         /// The page_ load.
         /// </summary>
         /// <param name="sender">

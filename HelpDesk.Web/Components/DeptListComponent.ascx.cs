@@ -37,23 +37,14 @@ namespace HelpDesk.Web.Components
         {
             get
             {
-                return (string)this.ViewState[nameof(this.DefaultValues)];
+                return string.Join(
+                    ",",
+                    this.ListBoxMain.Items.OfType<ListItem>().Where(m => m.Selected).Select(m => m.Value).ToList());
             }
 
             set
             {
                 this.ViewState[nameof(this.DefaultValues)] = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the selected values.
-        /// </summary>
-        public IEnumerable<string> SelectedValues
-        {
-            get
-            {
-                return this.ListBoxMain.Items.OfType<ListItem>().Where(m => m.Selected).Select(m => m.Value).ToList();
             }
         }
 
@@ -84,6 +75,7 @@ namespace HelpDesk.Web.Components
             try
             {
                 return WebUtils.GetWebAPI<IEnumerable<Dept>>(WebUtils.GetWebAPIUrl(), "Depts", "GET", null);
+                
             }
             catch (Exception e)
             {
@@ -135,9 +127,10 @@ namespace HelpDesk.Web.Components
         /// </returns>
         private string[] SelectValueList()
         {
-            if (!string.IsNullOrWhiteSpace(this.DefaultValues))
+            if (this.ViewState[nameof(this.DefaultValues)] != null)
             {
-                return this.DefaultValues.Split(',');
+                var values = (string)this.ViewState[nameof(this.DefaultValues)];
+                return values.Split(',');
             }
 
             return null;

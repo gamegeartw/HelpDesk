@@ -42,9 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADType.cs" />
-    <Compile Include="DisplayAttribute.cs" />
+    <Compile Include="EnumDisplayAttribute.cs" />
     <Compile Include="ExtraMethods.cs" />
-    <Compile Include="Status.cs" />
+    <Compile Include="ProcessStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
