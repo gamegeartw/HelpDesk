@@ -68,6 +68,7 @@ namespace HelpDesk.Web.UserPages
             {
                 if (this.ModelState.IsValid)
                 {
+                    value.CreateTime = DateTime.Now;
                     this.Service.Insert(value);
                     WebUtils.ShowAjaxMessage(this.Page, "作業成功");
                 }
@@ -116,21 +117,21 @@ namespace HelpDesk.Web.UserPages
 
         protected void FormViewMain_OnItemInserting(object sender, FormViewInsertEventArgs e)
         {
-            var deptNo = e.Values["DeptNo"];
-            if (deptNo == null)
-            {
-                return;
-            }
-
-            var dept = WebUtils.GetWebAPI<Dept>(
-                WebUtils.GetWebAPIUrl(),
-                "Depts",
-                "GET",
-                new List<KeyValuePair<string, object>>
-                    {
-                        new KeyValuePair<string, object>("id", deptNo)
-                    });
-            e.Values["DeptName"] = dept.DisplayName;
+            // var deptNo = e.Values["DeptNo"];
+            // if (deptNo == null)
+            // {
+            //     return;
+            // }
+            //
+            // var dept = WebUtils.GetWebAPI<Dept>(
+            //     WebUtils.GetWebAPIUrl(),
+            //     "Depts",
+            //     "GET",
+            //     new List<KeyValuePair<string, object>>
+            //         {
+            //             new KeyValuePair<string, object>("id", deptNo)
+            //         });
+            // e.Values["DeptName"] = dept.DisplayName;
 
             var empNo = e.Values["EmpNo"];
             if (empNo == null)
@@ -147,6 +148,8 @@ namespace HelpDesk.Web.UserPages
                         new KeyValuePair<string, object>("id", empNo)
                     });
             e.Values["EmpName"] = employee.NAME;
+            e.Values["DeptNo"] = employee.DEPTNO;
+            e.Values["DeptName"] = $"{employee.DEPTNO}-{employee.DeptName_C}";
         }
     }
 }

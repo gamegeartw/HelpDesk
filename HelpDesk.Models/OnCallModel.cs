@@ -12,7 +12,6 @@ namespace HelpDesk.Models
     using System;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     using HelpDesk.Enums;
 
@@ -123,10 +122,10 @@ namespace HelpDesk.Models
         /// 花費工時(分鐘)
         /// </summary>
         [Display(Name = "花費工時(分鐘)")]
-        public double ProcessTime { get; set; }
+        public decimal ProcessTime { get; set; }
 
         /// <summary>
-        /// 驗收簽名
+        /// 驗收簽名(圖檔路徑)
         /// </summary>
         [Display(Name = "驗收簽名")]
         public string SignPath { get; set; }
@@ -144,7 +143,7 @@ namespace HelpDesk.Models
         public string Manager { get; set; }
 
         /// <summary>
-        /// 結案狀態
+        /// 案件進度
         /// </summary>
         [DefaultValue(ProcessStatus.None)]
         public ProcessStatus ProcessStatus { get; set; } = ProcessStatus.None;

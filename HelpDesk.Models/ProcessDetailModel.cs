@@ -10,6 +10,7 @@
 namespace HelpDesk.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     using HelpDesk.Enums;
 
@@ -19,27 +20,51 @@ namespace HelpDesk.Models
     public class ProcessDetailModel
     {
         /// <summary>
-        /// Gets or sets the id.
+        /// 流水號
         /// </summary>
+        [Required]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the doc no.
+        /// 單據編號
         /// </summary>
+        [Required]
         public string DocNo { get; set; }
 
         /// <summary>
-        /// Gets or sets the process desc.
+        /// 案件流水號
         /// </summary>
+        public int Line { get; set; }
+
+        /// <summary>
+        /// 處理經過
+        /// </summary>
+        [Required]
         public string ProcessDesc { get; set; }
 
         /// <summary>
-        /// Gets or sets the emp name.
+        /// 處理人員
         /// </summary>
+        [Required]
         public string EmpName { get; set; }
 
         /// <summary>
-        /// Gets or sets the create time.
+        /// 送修廠商處理
+        /// </summary>
+        public bool OnService { get; set; }
+
+        /// <summary>
+        /// 送修時間
+        /// </summary>
+        public DateTime? OnServiceTime { get; set; }
+
+        /// <summary>
+        /// 返修時間
+        /// </summary>
+        public DateTime? OnServiceFinishTime { get; set; }
+
+        /// <summary>
+        /// 建檔時間
         /// </summary>
         public DateTime CreateTime { get; set; } = DateTime.Now;
 
@@ -49,13 +74,18 @@ namespace HelpDesk.Models
         public string AdditionalFile { get; set; }
 
         /// <summary>
-        /// Gets or sets the mail list.
+        /// 寄信地址
         /// </summary>
         public string MailList { get; set; }
 
         /// <summary>
-        /// Gets or sets the process status.
+        /// 處理進度
         /// </summary>
         public ProcessStatus ProcessStatus { get; set; } = ProcessStatus.Process;
+
+        /// <summary>
+        /// 使用工時
+        /// </summary>
+        public decimal ProcessTime { get; set; }
     }
 }

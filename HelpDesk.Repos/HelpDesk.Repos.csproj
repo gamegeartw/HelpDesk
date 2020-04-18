@@ -54,6 +54,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelpDesk.Enums\HelpDesk.Enums.csproj">
+      <Project>{FFB1FEDD-8AC3-4E61-8E30-70112EE05AB6}</Project>
+      <Name>HelpDesk.Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelpDesk.Models\HelpDesk.Models.csproj">
       <Project>{2db56e5e-2521-484b-885b-d9c85751491e}</Project>
       <Name>HelpDesk.Models</Name>

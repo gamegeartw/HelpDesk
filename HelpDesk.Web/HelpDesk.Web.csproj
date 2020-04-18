@@ -361,6 +361,7 @@
     <Content Include="Signout.aspx" />
     <Content Include="Site.Master" />
     <Content Include="UserPages\OnCall.aspx" />
+    <Content Include="UserPages\OnCallList.aspx" />
     <Content Include="UserPages\RegisterADAccount.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -514,6 +515,13 @@
     </Compile>
     <Compile Include="UserPages\OnCall.aspx.designer.cs">
       <DependentUpon>OnCall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPages\OnCallList.aspx.cs">
+      <DependentUpon>OnCallList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPages\OnCallList.aspx.designer.cs">
+      <DependentUpon>OnCallList.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPages\RegisterADAccount.aspx.cs">
       <DependentUpon>RegisterADAccount.aspx</DependentUpon>

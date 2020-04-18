@@ -71,24 +71,26 @@ namespace HelpDesk.Repos
         {
             this.sql = $@"
 Insert into HELPDESK_ONCALLS (
-{data.DocNo}
-,{data.DeptNo}
-,{data.DeptName}
-,{data.EmpNo}
-,{data.EmpName}
-,{data.CreateTime}
-,{data.OnCallType}
-,{data.OnCallReason}
+ {nameof(data.DocNo)}
+,{nameof(data.DeptNo)}
+,{nameof(data.DeptName)}
+,{nameof(data.EmpNo)}
+,{nameof(data.EmpName)}
+,{nameof(data.OnCallType)}
+,{nameof(data.OnCallReason)}
+,{nameof(data.ProcessStatus)}
+,{nameof(data.ExtNumber)}
 ) values
 (
- @{data.DocNo}
-,@{data.DeptNo}
-,@{data.DeptName}
-,@{data.EmpNo}
-,@{data.EmpName}
-,@{data.CreateTime}
-,@{data.OnCallType}
-,@{data.OnCallReason}
+ @{nameof(data.DocNo)}
+,@{nameof(data.DeptNo)}
+,@{nameof(data.DeptName)}
+,@{nameof(data.EmpNo)}
+,@{nameof(data.EmpName)}
+,@{nameof(data.OnCallType)}
+,@{nameof(data.OnCallReason)}
+,@{nameof(data.ProcessStatus)}
+,@{nameof(data.ExtNumber)}
 )";
             this.Conn.Execute(this.sql, data);
         }

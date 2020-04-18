@@ -23,12 +23,12 @@
                 ID="FormViewMain">
                 <InsertItemTemplate>
                     <div class="form-horizontal">
-                        <div class="form-group">
-                            <label class="control-label col-md-2">叫修單位(Dept)</label>
-                            <div class="col-md-10">
-                                <uc1:DeptListComponent runat="server" ID="DeptListComponent" DefaultValues="<%#: BindItem.DeptNo %>" />
-                            </div>
-                        </div>
+                        <%-- <div class="form-group"> --%>
+                        <%--     <label class="control-label col-md-2">叫修單位(Dept)</label> --%>
+                        <%--     <div class="col-md-10"> --%>
+                        <%--         <uc1:DeptListComponent runat="server" ID="DeptListComponent" DefaultValues="<%#: BindItem.DeptNo %>" /> --%>
+                        <%--     </div> --%>
+                        <%-- </div> --%>
                         <div class="form-group">
                             <label class="control-label col-md-2">申請人(User)</label>
                             <div class="col-md-10">
@@ -55,14 +55,13 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-push-2 col-md-10">
-                                <asp:LinkButton runat="server" ID="LinkButtonSubmit" CssClass="btn btn-primary btn-flat" CommandName="Insert" OnClientClick="return window.flag=confirm('即將送出,是否確定?(Sure to submit?)')">
+                                <asp:LinkButton runat="server" ID="LinkButtonSubmit" CssClass="btn btn-primary btn-flat btnRunningWithFlag" CommandName="Insert" OnClientClick="return window.flag=confirm('即將送出,是否確定?(Sure to submit?)')">
                                     <i class="fa fa-upload"></i>送出表單(Submit)
                                 </asp:LinkButton>
                             </div>
                         </div>
                     </div>
                 </InsertItemTemplate>
-
             </asp:FormView>
         </div>
     </div>

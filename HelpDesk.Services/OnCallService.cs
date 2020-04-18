@@ -9,10 +9,12 @@
 
 namespace HelpDesk.Services
 {
+    using System;
     using System.Data;
 
     using AutoMapper;
 
+    using HelpDesk.Enums;
     using HelpDesk.Models;
     using HelpDesk.Repos;
     using HelpDesk.ViewModels;
@@ -57,6 +59,8 @@ namespace HelpDesk.Services
         public void Insert(ServiceOnCallViewModel value)
         {
             var data = this.IMapper.Map<OnCallModel>(value);
+            data.DocNo = this.repo.GenAutoNo("NAFCO", "OnCall", "OC", DateTime.Now.ToString("yyyyMM"));
+            data.ProcessStatus = ProcessStatus.Enroll;
             this.repo.Insert(data);
         }
 
