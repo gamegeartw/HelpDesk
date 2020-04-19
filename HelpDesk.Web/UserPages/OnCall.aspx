@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OnCall.aspx.cs" Inherits="HelpDesk.Web.UserPages.OnCall" %>
-
-<%@ Register Src="~/Components/DeptListComponent.ascx" TagPrefix="uc1" TagName="DeptListComponent" %>
 <%@ Register Src="~/Components/UsersComponent.ascx" TagPrefix="uc1" TagName="UsersComponent" %>
 <%@ Register Src="~/Components/OnCallComponent.ascx" TagPrefix="uc1" TagName="OnCallComponent" %>
 
