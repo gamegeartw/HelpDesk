@@ -12,11 +12,8 @@ namespace HelpDesk.Web.UserPages
     using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
-    using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-
-    using HelpDesk.Models;
     using HelpDesk.Services;
     using HelpDesk.Utils;
     using HelpDesk.ViewModels;

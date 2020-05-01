@@ -20,6 +20,8 @@ namespace HelpDesk.ViewModels
     /// </summary>
     public class ServiceOnCallViewModel
     {
+        public string DocNo { get; set; }
+
         /// <summary>
         /// 送修單位
         /// </summary>

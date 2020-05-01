@@ -12,8 +12,8 @@ namespace HelpDesk.Repos
     using System.Collections.Generic;
     using System.Data;
 
-    using HelpDesk.Models;
-    using HelpDesk.ViewModels;
+    using Models;
+    using ViewModels;
 
     /// <summary>
     /// The device repo.
