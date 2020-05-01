@@ -10,6 +10,7 @@
 namespace HelpDesk.Services
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
 
     using AutoMapper;
@@ -44,6 +45,7 @@ namespace HelpDesk.Services
                         cfg.CreateMap<ServiceOnCallViewModel, OnCallModel>()
                             .ForMember(m => m.Id, o => o.Ignore())
                             .ForMember(m => m.DocNo, o => o.Ignore())
+                            .ForMember(m => m.OnCallTypeDisplayName, o => o.Ignore())
                             .ForMember(m => m.ProcessDetails, o => o.Ignore());
                     });
             this.Config.AssertConfigurationIsValid();
@@ -71,6 +73,20 @@ namespace HelpDesk.Services
         {
             this.repo?.Dispose();
             base.Dispose();
+        }
+
+        /// <summary>
+        /// The get list.
+        /// </summary>
+        /// <param name="searchViewModel">
+        /// The search view model.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IList{OnCallModel}"/>.
+        /// </returns>
+        public IList<OnCallModel> GetList(FormSearchViewModel searchViewModel)
+        {
+            return this.repo.GetList(searchViewModel);
         }
     }
 }

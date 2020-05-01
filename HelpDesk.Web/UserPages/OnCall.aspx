@@ -44,13 +44,13 @@
                         <div class="form-group">
                             <label class="control-label col-md-2">連絡電話(ExtNumber)</label>
                             <div class="col-md-10">
-                                <asp:TextBox runat="server" CssClass="form-control bg-yellow" ID="TextBoxExtNumber" Text="<%#: BindItem.ExtNumber %>"/>
+                                <asp:TextBox runat="server" CssClass="form-control bg-yellow" ID="TextBoxExtNumber" Text="<%#: BindItem.ExtNumber %>" required="required"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">叫修原因(Reason)</label>
                             <div class="col-md-10">
-                                <asp:TextBox runat="server" ID="TextBoxOnCallReason" Text="<%#: BindItem.OnCallReason %>" TextMode="MultiLine" Rows="5" CssClass="form-control"/>
+                                <asp:TextBox runat="server" ID="TextBoxOnCallReason" Text="<%#: BindItem.OnCallReason %>" TextMode="MultiLine" Rows="5" CssClass="form-control" required="required"/>
                             </div>
                         </div>
                         <div class="form-group">

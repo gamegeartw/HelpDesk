@@ -11,9 +11,12 @@ namespace HelpDesk.Web
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.SqlClient;
     using System.Linq;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
 
+    using HelpDesk.Models;
     using HelpDesk.Services;
     using HelpDesk.Utils;
     using HelpDesk.ViewModels;
@@ -37,7 +40,12 @@ namespace HelpDesk.Web
         /// <summary>
         /// The service.
         /// </summary>
-        private readonly ADService service = new ADService(WebUtils.GetAdOperator());
+        private readonly ADService serviceAD = new ADService(WebUtils.GetAdOperator());
+
+        /// <summary>
+        /// The service on call.
+        /// </summary>
+        private readonly OnCallService ServiceOnCall = new OnCallService(new SqlConnection(WebUtils.GetConnString("Intranet_DB")));
 
         /// <summary>
         /// Gets or sets the search view model.
@@ -60,7 +68,8 @@ namespace HelpDesk.Web
         /// </summary>
         public override void Dispose()
         {
-            this.service?.Dispose();
+            this.serviceAD?.Dispose();
+            this.ServiceOnCall?.Dispose();
             base.Dispose();
         }
 
@@ -85,7 +94,7 @@ namespace HelpDesk.Web
             try
             {
                 var users = 
-                    this.service.GetAll().OrderBy(m => m.Telephone).Where(m => m.IsEnabled)
+                    this.serviceAD.GetAll().OrderBy(m => m.Telephone).Where(m => m.IsEnabled)
                         .Where(m => !string.IsNullOrWhiteSpace(m.Telephone));
                 
                 if (this.SearchViewModel != null)
@@ -143,6 +152,45 @@ namespace HelpDesk.Web
             {
                 this.MetaDescription = "首頁";
             }
+        }
+
+        /// <summary>
+        /// The select service on call.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerable{OnCallModel}"/>.
+        /// </returns>
+        public IEnumerable<OnCallModel> SelectServiceOnCall(int startRowIndex, int maximumRows, out int totalRowCount)
+        {
+            totalRowCount = 0;
+            try
+            {
+                var searchViewModel =
+                    new FormSearchViewModel { StartRowIndex = startRowIndex, MaximumRows = maximumRows };
+                var result = this.ServiceOnCall.GetList(searchViewModel);
+                totalRowCount = result.Count;
+                return result;
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+            }
+            
+            return null;
+        }
+
+        /// <summary>
+        /// The list view service on call_ on item data bound.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        protected void ListViewServiceOnCall_OnItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            // e.Item.FindControl("StatusComponent").DataBind();
         }
     }
 }

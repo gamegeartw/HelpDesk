@@ -20,7 +20,9 @@
                         <a href="#" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-default">
                             <i class="fa fa-edit"></i>&nbsp;變更密碼
                         </a>
-
+                        <a href="#" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-default2">
+                            <i class="fa fa-phone"></i>&nbsp;變更電話號碼
+                        </a>
                     </div>
                     <table class="table table-hover table-responsive table-bordered">
                         <tr>
@@ -99,6 +101,48 @@
                         </div>
                         <!-- /.modal-dialog -->
                     </div>
+                    
+                                        <div class="modal fade in" id="modal-default2" style="display: none; padding-right: 16px;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title">變更電話號碼</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <div class="form-horizontal">
+                                            <label class="control-label">電話號碼:</label>
+                                            <asp:TextBox
+                                                runat="server"
+                                                ID="TextBoxTelephone"
+                                                AutoCompleteType="None"
+                                                Required="required"
+                                                Text="<%#: Item.Telephone %>"
+                                                CssClass="form-control"/>
+                                        </div>
+
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
+                                    <asp:LinkButton
+                                        runat="server"
+                                        CommandName="UpdateTelePhone"
+                                        CommandArgument="<%#: Item.SAMAccountName %>"
+                                        CssClass="btn btn-primary btn-flat btnRunningWithFlag"
+                                        OnClientClick="return window.flag=confirm('即將變更,是否確定?')"
+                                        ID="LinkButton1">
+                                        <i class="fa fa-save"></i>&nbsp;變更電話號碼
+                                    </asp:LinkButton>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+
                 </ItemTemplate>
             </asp:FormView>
             

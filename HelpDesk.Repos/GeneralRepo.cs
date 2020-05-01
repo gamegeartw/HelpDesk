@@ -37,6 +37,7 @@ namespace HelpDesk.Repos
         public GeneralRepo(IDbConnection conn)
         {
             this.Conn = conn;
+            conn.Open();
         }
 
         /// <summary>
@@ -96,6 +97,7 @@ FETCH NEXT @MaximumRows ROWS ONLY;
         /// </summary>
         public void Dispose()
         {
+            this.Conn?.Close();
             this.Conn?.Dispose();
         }
 
@@ -152,14 +154,13 @@ FETCH NEXT @MaximumRows ROWS ONLY;
         public string GenAutoNo(string companyID, string programId,string prgHead, string strYYYYMM)
         {
             var param = new { companyID, programId, prgHead, strYYYYMM };
-            this.Conn.Open();
             using (var tran = this.Conn.BeginTransaction())
             {
                 this.sql = "SELECT TOP 1 PrgNumber FROM GNAUTO WHERE 1=1 AND PRGID = @programId and PrgHead = @prgHead AND PrgYymm = @strYYYYMM";
                 var result1 = this.Conn.QueryFirstOrDefault<int>(this.sql, param, tran);
                 if (result1 != 0)
                 {
-                    this.sql = @" UPDATE GNAUTO SET PrgNumber= PrgNumber + 1 WHERE PRGID = @programId and PrgHead = @prgHead And AND PrgYymm = @strYYYYMM";
+                    this.sql = @" UPDATE GNAUTO SET PrgNumber= PrgNumber + 1 WHERE PRGID = @programId and PrgHead = @prgHead  AND PrgYymm = @strYYYYMM";
                     result1++;
                 }
                 else
@@ -169,8 +170,8 @@ FETCH NEXT @MaximumRows ROWS ONLY;
                     result1 = 1;
                 }
 
-                this.Conn.Execute(this.sql, param);
-
+                this.Conn.Execute(this.sql, param, tran);
+                tran.Commit();
                 return $"{programId}{strYYYYMM}{result1:00000}";
             }
         }

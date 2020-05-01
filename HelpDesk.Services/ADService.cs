@@ -206,5 +206,24 @@ namespace HelpDesk.Services
                 }
             }
         }
+
+        /// <summary>
+        /// 更新電話號碼
+        /// </summary>
+        /// <param name="account">
+        /// The account.
+        /// </param>
+        /// <param name="telePhone">
+        /// The tele phone.
+        /// </param>
+        public void UpdateTelePhone(string account, string telePhone)
+        {
+            this.UserObject = UserObject.FindOneBySAMAccountName(this.ADOperator, account);
+            var entry = this.UserObject.DirectoryEntry;
+            //entry.InvokeSet("telephoneNumber", new object[] { telePhone });
+
+            entry.Properties["telephoneNumber"].Value = telePhone;
+            entry.CommitChanges();
+        }
     }
 }

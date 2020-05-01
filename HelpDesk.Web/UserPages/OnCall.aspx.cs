@@ -132,24 +132,32 @@ namespace HelpDesk.Web.UserPages
             //             new KeyValuePair<string, object>("id", deptNo)
             //         });
             // e.Values["DeptName"] = dept.DisplayName;
-
-            var empNo = e.Values["EmpNo"];
-            if (empNo == null)
+            try
             {
-                return;
+                var empNo = e.Values["EmpNo"];
+                if (empNo == null)
+                {
+                    return;
+                }
+
+                var employee = WebUtils.GetWebAPI<EmployeeViewModel>(
+                    WebUtils.GetWebAPIUrl(),
+                    "Users",
+                    "GET",
+                    new List<KeyValuePair<string, object>>
+                        {
+                            new KeyValuePair<string, object>("id", empNo)
+                        });
+                e.Values["EmpName"] = employee.NAME;
+                e.Values["DeptNo"] = employee.DEPTNO;
+                e.Values["DeptName"] = $"{employee.DEPTNO}-{employee.DeptName_C}";
+            }
+            catch (Exception exception)
+            {
+                Logger.Error(exception);
+                this.ModelState.AddModelError("error",exception.Message);
             }
 
-            var employee = WebUtils.GetWebAPI<EmployeeViewModel>(
-                WebUtils.GetWebAPIUrl(),
-                "Users",
-                "GET",
-                new List<KeyValuePair<string, object>>
-                    {
-                        new KeyValuePair<string, object>("id", empNo)
-                    });
-            e.Values["EmpName"] = employee.NAME;
-            e.Values["DeptNo"] = employee.DEPTNO;
-            e.Values["DeptName"] = $"{employee.DEPTNO}-{employee.DeptName_C}";
         }
     }
 }

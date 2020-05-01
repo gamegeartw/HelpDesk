@@ -10,8 +10,6 @@
 namespace HelpDesk.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Security.AccessControl;
-
     using HelpDesk.Enums;
 
     /// <summary>
@@ -52,5 +50,9 @@ namespace HelpDesk.ViewModels
         public string CompanyCode { get; set; }
 
         public string DisplayName { get; set; }
+        /// <summary>
+        /// 連絡電話
+        /// </summary>
+        public string Telephone { get; set; }
     }
 }

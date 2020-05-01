@@ -9,7 +9,9 @@
 
 namespace HelpDesk.Repos
 {
+    using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using System.Text;
 
     using Dapper;
@@ -31,6 +33,39 @@ namespace HelpDesk.Repos
         public OnCallRepo(IDbConnection conn)
             : base(conn)
         {
+        }
+
+        /// <summary>
+        /// The get list.
+        /// </summary>
+        /// <param name="searchViewModel">
+        /// The search view model.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IList{OnCallModel}"/>.
+        /// </returns>
+        public override IList<OnCallModel> GetList(FormSearchViewModel searchViewModel)
+        {
+            this.sql = @"
+SELECT 
+    o.*,p.[Key] as OnCallTypeDisplayName
+FROM [dbo].[HELPDESK_ONCALLS] o 
+left join dbo.PARAM_DATAS p on o.OnCallType = p.[Data] Where 1=1";
+            if (searchViewModel != null && !string.IsNullOrWhiteSpace(searchViewModel.SearchText))
+            {
+                this.sql += $@"
+And (
+       o.DeptName Like @{nameof(searchViewModel.SearchText)} 
+    OR o.EmpNo Like @{nameof(searchViewModel.SearchText)}
+    OR o.EmpName Like @{nameof(searchViewModel.SearchText)}
+    OR p.[Key] Like @{nameof(searchViewModel.SearchText)}
+    OR o.[OnCallType] Like @{nameof(searchViewModel.SearchText)}
+)";
+            }
+
+            this.sql = string.Format(this.TemplatePageStringByDesc, this.sql, "Id");
+
+            return this.Conn?.Query<OnCallModel>(this.sql, searchViewModel).ToList();
         }
 
         /// <summary>

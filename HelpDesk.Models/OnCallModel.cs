@@ -58,11 +58,17 @@ namespace HelpDesk.Models
         public string EmpName { get; set; }
 
         /// <summary>
-        /// 報修項目
+        /// 報修項目(編號)
         /// </summary>
         [Display(Name = "報修項目")]
         [Required]
         public string OnCallType { get; set; }
+
+        /// <summary>
+        /// 報修項目(名稱)
+        /// </summary>
+        [Display(Name = "報修項目")]
+        public string OnCallTypeDisplayName { get; set; }
 
         /// <summary>
         /// 連絡電話

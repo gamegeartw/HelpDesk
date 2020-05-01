@@ -98,10 +98,31 @@ namespace HelpDesk.Web.Admins
             // throw new NotImplementedException();
             try
             {
-                var txtPwd = this.FormViewAD.FindControl("TextBoxResetPassword") as TextBox;
-                if (txtPwd == null)
+                var inputValue = string.Empty;
+                if (e.CommandName == "ResetPassword")
                 {
-                    throw new ArgumentNullException(nameof(txtPwd),"密碼不得為空");
+                    var txt = this.FormViewAD.FindControl("TextBoxResetPassword") as TextBox;
+                    if (txt == null)
+                    {
+                        throw new ArgumentNullException(e.CommandName, "無此欄位");
+                    }
+
+                    inputValue = txt.Text.Trim();
+                }
+                else if (e.CommandName == "UpdateTelePhone")
+                {
+                    var txt = this.FormViewAD.FindControl("TextBoxTelephone") as TextBox;
+                    if (txt == null)
+                    {
+                        throw new ArgumentNullException(e.CommandName, "無此欄位");
+                    }
+
+                    inputValue = txt.Text.Trim();
+                }
+
+                if (string.IsNullOrWhiteSpace(inputValue))
+                {
+                    throw new ArgumentNullException(e.CommandName, "輸入的值不得為空");
                 }
 
                 var @type = this.Service.GetType();
@@ -110,12 +131,13 @@ namespace HelpDesk.Web.Admins
                 {
                     var ex = (Exception)method.Invoke(
                         this.Service,
-                        new object[] { e.CommandArgument, txtPwd.Text.Trim() });
+                        new object[] { e.CommandArgument, inputValue });
                     if (ex != null)
                     {
                       throw ex;
                     }
-                    WebUtils.ShowAjaxMessage(this.Page,"作業成功");
+
+                    WebUtils.ShowAjaxMessage(this.Page, "作業成功");
                 }
             }
             catch (Exception exception)
@@ -123,7 +145,6 @@ namespace HelpDesk.Web.Admins
                 Logger.Error(exception);
                 this.ModelState.AddModelError("ResetPassword", exception.Message);
             }
-
         }
     }
 }
