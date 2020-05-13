@@ -12,7 +12,6 @@ namespace HelpDesk.Repos
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
-    using System.Text;
 
     using Dapper;
 
@@ -83,25 +82,40 @@ And (
             return this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, searchViewModel);
         }
 
+        /// <summary>
+        /// The update.
+        /// </summary>
+        /// <param name="obj">
+        /// The obj.
+        /// </param>
         public override void Update(OnCallModel obj)
         {
-            var sb = new StringBuilder("Update HELPDESK_ONCALLS Set");
-
-            sb.AppendLine($" {nameof(obj.DeptNo)} = @{nameof(obj.DeptNo)} ");
-            sb.AppendLine($" ,{nameof(obj.DeptName)} = @{nameof(obj.DeptName)} ");
-            sb.AppendLine($" ,{nameof(obj.EmpNo)} = @{nameof(obj.EmpNo)} ");
-            sb.AppendLine($" ,{nameof(obj.EmpName)} = @{nameof(obj.EmpName)} ");
-            sb.AppendLine($" ,{nameof(obj.CommitUser)} = @{nameof(obj.CommitUser)} ");
-            sb.AppendLine($" ,{nameof(obj.CloseTime)} = @{nameof(obj.CloseTime)} ");
-            sb.AppendLine($" ,{nameof(obj.ExtNumber)} = @{nameof(obj.ExtNumber)} ");
-            sb.AppendLine($" ,{nameof(obj.OnCallReason)} = @{nameof(obj.OnCallReason)} ");
-            sb.AppendLine($" ,{nameof(obj.OnCallType)} = @{nameof(obj.OnCallType)} ");
-            sb.AppendLine($" ,{nameof(obj.ProcessTime)} = @{nameof(obj.ProcessTime)} ");
-            sb.AppendLine($" ,{nameof(obj.ProcessUser)} = @{nameof(obj.ProcessUser)} ");
-            sb.AppendLine($" ,{nameof(obj.SignPath)} = @{nameof(obj.SignPath)} ");
-            sb.AppendLine(" Where Id=@Id");
+            this.sql = $@"
+Update HELPDESK_ONCALLS Set
+ {nameof(obj.DeptNo)} = @{nameof(obj.DeptNo)}
+,{nameof(obj.DeptName)} = @{nameof(obj.DeptName)}
+,{nameof(obj.EmpNo)} = @{nameof(obj.EmpNo)}
+,{nameof(obj.EmpName)} = @{nameof(obj.EmpName)} 
+,{nameof(obj.CommitUser)} = @{nameof(obj.CommitUser)}
+,{nameof(obj.CloseTime)} = @{nameof(obj.CloseTime)} 
+,{nameof(obj.ExtNumber)} = @{nameof(obj.ExtNumber)} 
+,{nameof(obj.OnCallReason)} = @{nameof(obj.OnCallReason)}
+,{nameof(obj.OnCallType)} = @{nameof(obj.OnCallType)}
+,{nameof(obj.ProcessTime)} = @{nameof(obj.ProcessTime)}
+,{nameof(obj.ProcessUser)} = @{nameof(obj.ProcessUser)}
+,{nameof(obj.SignPath)} = @{nameof(obj.SignPath)} 
+,{nameof(obj.ProcessStatus)} = @{nameof(obj.ProcessStatus)}
+Where Id=@Id
+";
+            this.Conn.Execute(this.sql, obj);
         }
 
+        /// <summary>
+        /// The insert.
+        /// </summary>
+        /// <param name="data">
+        /// The data.
+        /// </param>
         public void Insert(OnCallModel data)
         {
             this.sql = $@"

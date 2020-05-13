@@ -74,11 +74,7 @@ namespace HelpDesk.Web.Components
         {
             try
             {
-                var list = WebUtils.GetWebAPI<IEnumerable<ViewModels.EmployeeViewModel>>(
-                    WebUtils.GetWebAPIUrl(),
-                    "Users",
-                    "GET",
-                    null);
+                var list = ServiceUtils.GetEmployeesFromERP();
                 var result = new List<KeyValuePair<string, string>>();
                 foreach (var model in list.OrderBy(m => m.EMPNO))
                 {

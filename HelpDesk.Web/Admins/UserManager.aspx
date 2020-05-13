@@ -8,7 +8,7 @@
     <uc1:FormSearchComponent runat="server" ID="FormSearchComponent" />
     <div class="box box-info">
         <div class="box-header">
-            <h3 class="box-title"><i class="fa fa-group"></i>人員清單</h3>
+            <h3 class="box-title"><i class="fa fa-group"></i>ERP人員清單</h3>
         </div>
         <div class="box-body">
             <asp:ListView 

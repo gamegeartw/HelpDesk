@@ -13,7 +13,7 @@
             </div>
         </ProgressTemplate>
     </asp:UpdateProgress>
-    <div class="col-md-6">
+    <div class="col-md-6 hide">
         <asp:UpdatePanel runat="server" ID="UpdatePanelOnCall">
             <ContentTemplate>
                 <div class="box box-info">
@@ -81,7 +81,7 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
 
         <asp:UpdatePanel runat="server" ID="UpdatePanelTelephone">
 

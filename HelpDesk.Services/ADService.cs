@@ -220,8 +220,6 @@ namespace HelpDesk.Services
         {
             this.UserObject = UserObject.FindOneBySAMAccountName(this.ADOperator, account);
             var entry = this.UserObject.DirectoryEntry;
-            //entry.InvokeSet("telephoneNumber", new object[] { telePhone });
-
             entry.Properties["telephoneNumber"].Value = telePhone;
             entry.CommitChanges();
         }

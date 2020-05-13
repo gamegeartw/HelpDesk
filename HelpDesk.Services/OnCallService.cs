@@ -46,7 +46,10 @@ namespace HelpDesk.Services
                             .ForMember(m => m.Id, o => o.Ignore())
                             .ForMember(m => m.DocNo, o => o.Ignore())
                             .ForMember(m => m.OnCallTypeDisplayName, o => o.Ignore())
-                            .ForMember(m => m.ProcessDetails, o => o.Ignore());
+                            .ForMember(m => m.ProcessDetails, o => o.Ignore())
+                            .ForMember(m => m.StartRowIndex, o => o.Ignore())
+                            .ForMember(m => m.MaximumRows, o => o.Ignore())
+                            .ForMember(m => m.TotalRowCount, o => o.Ignore());
                     });
             this.Config.AssertConfigurationIsValid();
             this.IMapper = this.Config.CreateMapper();
@@ -87,6 +90,40 @@ namespace HelpDesk.Services
         public IList<OnCallModel> GetList(FormSearchViewModel searchViewModel)
         {
             return this.repo.GetList(searchViewModel);
+        }
+
+        /// <summary>
+        /// 結案作業
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        public void CloseReport(string id)
+        {
+            var item = this.repo.Get(new FormSearchViewModel { SearchText = id });
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item.Id), "沒有這筆資料");
+            }
+
+            if (item.ProcessStatus == ProcessStatus.Finish)
+            {
+                throw new ArgumentNullException(nameof(item.Id), "已結案,無法再進行");
+            }
+
+            if (item.ProcessStatus == ProcessStatus.Rollback)
+            {
+                throw new ArgumentNullException(nameof(item.Id), "退件中,無法結案");
+            }
+
+            if (item.ProcessStatus == ProcessStatus.OnService)
+            {
+                throw new ArgumentNullException(nameof(item.Id), "送修中,無法結案");
+            }
+
+            item.ProcessStatus = ProcessStatus.Finish;
+
+            this.repo.Update(item);
         }
     }
 }

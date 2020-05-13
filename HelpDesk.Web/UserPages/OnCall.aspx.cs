@@ -137,14 +137,7 @@ namespace HelpDesk.Web.UserPages
                     return;
                 }
 
-                var employee = WebUtils.GetWebAPI<EmployeeViewModel>(
-                    WebUtils.GetWebAPIUrl(),
-                    "Users",
-                    "GET",
-                    new List<KeyValuePair<string, object>>
-                        {
-                            new KeyValuePair<string, object>("id", empNo)
-                        });
+                var employee = ServiceUtils.GetEmployee((string)empNo);
                 e.Values["EmpName"] = employee.NAME;
                 e.Values["DeptNo"] = employee.DEPTNO;
                 e.Values["DeptName"] = $"{employee.DEPTNO}-{employee.DeptName_C}";

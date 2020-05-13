@@ -11,9 +11,17 @@ namespace HelpDesk.Web.UserPages
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.SqlClient;
+    using System.Linq;
+    using System.Web.UI.WebControls;
 
+    using HelpDesk.Models;
+    using HelpDesk.Services;
+    using HelpDesk.Utils;
     using HelpDesk.ViewModels;
     using HelpDesk.Web.Events;
+
+    using Microsoft.Ajax.Utilities;
 
     using NLog;
 
@@ -26,6 +34,11 @@ namespace HelpDesk.Web.UserPages
         /// The logger.
         /// </summary>
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// The service.
+        /// </summary>
+        private readonly OnCallService service = new OnCallService(new SqlConnection(WebUtils.GetConnString("Intranet_DB_Write")));
 
         /// <summary>
         /// Gets or sets the search view model.
@@ -43,21 +56,44 @@ namespace HelpDesk.Web.UserPages
             }
         }
 
-        public IEnumerable<OnCallModel> SelectValue()
+        public override void Dispose()
         {
-            throw new NotImplementedException();
+            this.service?.Dispose();
+            base.Dispose();
         }
 
         /// <summary>
         /// The select value.
         /// </summary>
+        /// <param name="startRowIndex">
+        /// The start Row Index.
+        /// </param>
+        /// <param name="maximumRows">
+        /// The maximum Rows.
+        /// </param>
+        /// <param name="totalRowCount">
+        /// The total Row Count.
+        /// </param>
         /// <returns>
         /// The <see cref="IEnumerable{ServiceOnCallViewModel}"/>.
         /// </returns>
-        public IEnumerable<ServiceOnCallViewModel> SelectValue()
+        public IEnumerable<OnCallModel> SelectValue(int startRowIndex, int maximumRows, out int totalRowCount)
         {
+            totalRowCount = 0;
             try
             {
+                var searchModel = new FormSearchViewModel
+                                      {
+                                          MaximumRows = maximumRows, 
+                                          StartRowIndex = startRowIndex
+                                      };
+                var result = this.service.GetList(searchModel);
+                if (result.Count > 0)
+                {
+                    totalRowCount = result.First().TotalRowCount;
+                }
+                
+                return result;
             }
             catch (Exception e)
             {
@@ -97,6 +133,56 @@ namespace HelpDesk.Web.UserPages
             if (!this.IsPostBack)
             {
                 this.MetaDescription = "報修清單";
+            }
+        }
+
+        /// <summary>
+        /// The list view main_ on item command.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        protected void ListViewMain_OnItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            var p = this.GetType();
+            if (e.CommandArgument != null)
+            {
+                try
+                {
+                    var method = p.GetMethod(e.CommandName);
+                    if (method != null)
+                    {
+                        method.Invoke(this, new[] { e.CommandArgument });
+                    }
+                }
+                catch (Exception exception)
+                {
+                    Logger.Error(exception);
+                    this.ModelState.AddModelError("error", exception.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 結案作業(名稱要跟CommandName一樣)
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        // ReSharper disable once StyleCop.SA1202
+        public void CloseReport(string id)
+        {
+            try
+            {
+                this.service.CloseReport(id);
+            }
+            catch (Exception exception)
+            {
+                Logger.Error(exception);
+                this.ModelState.AddModelError("error", exception.Message);
             }
         }
     }

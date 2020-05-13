@@ -18,7 +18,7 @@ namespace HelpDesk.Models
     /// <summary>
     /// The on call model.
     /// </summary>
-    public class OnCallModel
+    public class OnCallModel : BaseClass
     {
         /// <summary>
         /// Gets or sets the id.

@@ -74,8 +74,13 @@ namespace HelpDesk.Web.Components
         {
             try
             {
-                return WebUtils.GetWebAPI<IEnumerable<Dept>>(WebUtils.GetWebAPIUrl(), "Depts", "GET", null);
-                
+                var results = new List<Dept>();
+                foreach (var url in ServiceUtils.GetWebAPIUrl())
+                {
+                    results.AddRange(ServiceUtils.GetWebAPI<IEnumerable<Dept>>(url, "Depts", "GET", null));
+                }
+
+                return results;
             }
             catch (Exception e)
             {

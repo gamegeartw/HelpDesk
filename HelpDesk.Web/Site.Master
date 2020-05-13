@@ -67,6 +67,7 @@
                             runat="server"
                             HeaderText="作業失敗,錯誤訊息(Error message):"
                             ID="ValidationSummary1"/>
+                        <asp:Literal runat="server" ID="LiteralMsg" Visible="False"/>
                     </div>
                     <div>
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">

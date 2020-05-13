@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="WebUtils.cs" company="NAFCO">
-//   NAFCO.Utils
+//   HelpDesk.ASP.NET
 // </copyright>
 // <summary>
 //   Defines the WebUtils type.
@@ -11,10 +11,13 @@ namespace HelpDesk.Utils
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Text;
     using System.Web;
     using System.Web.Configuration;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
+
     using HelpDesk.Models;
 
     using Landpy.ActiveDirectory.Core;
@@ -36,7 +39,7 @@ namespace HelpDesk.Utils
         /// <returns>
         /// The <see cref="UserData"/>.
         /// </returns>
-        public static UserData GetUser(System.Web.HttpContext ctx)
+        public static UserData GetUser(HttpContext ctx)
         {
             if (ctx.User.Identity.IsAuthenticated)
             {
@@ -65,73 +68,41 @@ namespace HelpDesk.Utils
         /// </returns>
         public static IADOperator GetAdOperator()
         {
-            var dc = WebConfigurationManager.AppSettings["DCName"];
-            var user = WebConfigurationManager.AppSettings["ADUser"];
-            var password = WebConfigurationManager.AppSettings["password"];
+            var dc = ConfigurationManager.AppSettings["DCName"];
+            var user = ConfigurationManager.AppSettings["ADUser"];
+            var password = ConfigurationManager.AppSettings["password"];
             return new ADOperator($"{dc}\\{user}", password, dc);
         }
 
         public static string GetConnString(string name)
         {
-            return WebConfigurationManager.ConnectionStrings[name].ConnectionString;
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
         /// <summary>
-        /// The get web api url.
+        /// The show page message.
         /// </summary>
-        /// <returns>
-        /// The <see cref="string"/>.
-        /// </returns>
-        public static string GetWebAPIUrl()
+        /// <param name="page">
+        /// The page.
+        /// </param>
+        /// <param name="message">
+        /// The s.
+        /// </param>
+        public static void ShowPageMessage(Page page, string message)
         {
-            return WebConfigurationManager.AppSettings["WEBAPI"];
-        }
-
-        /// <summary>
-        /// The get web api.
-        /// </summary>
-        /// <param name="baseUrl">
-        /// The base url.
-        /// </param>
-        /// <param name="path">
-        /// The path.
-        /// </param>
-        /// <param name="method">
-        /// The method.
-        /// </param>
-        /// <param name="paramList">
-        /// The param list.
-        /// </param>
-        /// <typeparam name="T">
-        /// </typeparam>
-        /// <returns>
-        /// The <see cref="T"/>.
-        /// </returns>
-        /// <exception cref="HttpException">
-        /// </exception>
-        public static T GetWebAPI<T>(string baseUrl, string path,string method, IList<KeyValuePair<string, object>> paramList)
-        {
-            var client = new RestClient(baseUrl);
-            client.Encoding = Encoding.UTF8;
-            var request = new RestRequest(path, (Method)Enum.Parse(typeof(Method), method));
-            if (paramList != null)
+            var master = page.Master;
+            if (master == null)
             {
-                foreach (var pair in paramList)
-                {
-                    request.AddQueryParameter(pair.Key, (string)pair.Value);
-                }
+                throw new ArgumentNullException(nameof(page.Master), "找不到控制項");
             }
-
-            var response = client.Execute(request);
-
-            if (!response.IsSuccessful)
-            {
-                throw new HttpException((int)response.StatusCode, response.ErrorMessage);
-            }
-
-            var serializer = new JsonDeserializer();
-
-            return serializer.Deserialize<T>(response);
+            var literal = (Literal)master.FindControl("LiteralMsg");
+            literal.Text = $@"
+                <div class='alert alert-success alert-dismissible'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                    <h4><i class='icon fa fa-check'></i> Success!</h4>
+                    {message}
+                </div>";
+            literal.Visible = true;
         }
     }
 }
