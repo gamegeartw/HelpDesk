@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="StatusComponent.ascx.cs" company="NAFCO">
+//   HelpDesk.Web
+// </copyright>
+// <summary>
+//   Defines the StatusComponent type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace HelpDesk.Web.Components
 {
-    using System.Collections;
-    using System.Web.ModelBinding;
+    using System;
 
     using HelpDesk.Enums;
 

@@ -10,8 +10,12 @@
 namespace HelpDesk.Web.Components
 {
     using System;
+    using System.ComponentModel;
+    using System.Linq;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+
+    using HelpDesk.Enums;
 
     /// <summary>
     /// The button list component.
@@ -44,14 +48,36 @@ namespace HelpDesk.Web.Components
             }
         }
 
+        // /// <summary>
+        // /// Gets or sets the show btns.
+        // /// </summary>
+        // public string ShowBtns
+        // {
+        //     get
+        //     {
+        //         return (string)this.ViewState[nameof(this.ShowBtns)];
+        //     }
+        //
+        //     set
+        //     {
+        //         this.ViewState[nameof(this.ShowBtns)] = value;
+        //     }
+        // }
+
+
         /// <summary>
-        /// Gets or sets the show btns.
+        /// Gets or sets the btn list.
         /// </summary>
-        public string ShowBtns
+        [
+            DefaultValue(null),
+            TypeConverterAttribute(typeof(EnumConverter))
+        ]
+        
+        public BtnList ShowBtns
         {
             get
             {
-                return (string)this.ViewState[nameof(this.ShowBtns)];
+                return (BtnList)this.ViewState[nameof(this.ShowBtns)];
             }
 
             set
@@ -81,18 +107,29 @@ namespace HelpDesk.Web.Components
         /// </param>
         protected override void OnPreRender(EventArgs e)
         {
-            var showBtns = this.ShowBtns.Split(',');
+            //var showBtns = this.ShowBtns.Split(',');
 
-            foreach (var btnId in showBtns)
+            // foreach (var btnId in showBtns)
+            // {
+            //     var btn = this.FindControl($"LinkButton{btnId}") as LinkButton;
+            //     if (btn != null)
+            //     {
+            //         btn.Visible = true;
+            //         if (this.IsSmallIcon && !btn.CssClass.Contains("btn-sm"))
+            //         {
+            //             btn.CssClass += " btn-sm ";
+            //         }
+            //     }
+            // }
+
+            var btns = this.Controls.OfType<LinkButton>().ToList();
+            foreach (var btn in btns)
             {
-                var btn = this.FindControl($"LinkButton{btnId}") as LinkButton;
-                if (btn != null)
+                var enumBtn = (BtnList)Enum.Parse(typeof(BtnList), btn.CommandName);
+                btn.Visible = this.ShowBtns.HasFlag(enumBtn);
+                if (this.IsSmallIcon && !btn.CssClass.Contains("btn-sm"))
                 {
-                    btn.Visible = true;
-                    if (this.IsSmallIcon && !btn.CssClass.Contains("btn-sm"))
-                    {
-                        btn.CssClass += " btn-sm ";
-                    }
+                    btn.CssClass += " btn-sm ";
                 }
             }
 

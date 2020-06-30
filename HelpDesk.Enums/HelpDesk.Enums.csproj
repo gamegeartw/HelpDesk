@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADType.cs" />
+    <Compile Include="BtnList.cs" />
     <Compile Include="EnumDisplayAttribute.cs" />
     <Compile Include="ExtraMethods.cs" />
     <Compile Include="ProcessStatus.cs" />

@@ -165,15 +165,22 @@ namespace HelpDesk.Utils
             var @params = new List<KeyValuePair<string, object>> { param };
 
             var results = new List<EmployeeViewModel>();
-
-            foreach (var url in GetWebAPIUrl())
+            try
             {
-                results.AddRange(ServiceUtils.GetWebAPI<IEnumerable<EmployeeViewModel>>(
-                    url,
-                    "Users",
-                    "GET",
-                    @params));
+                foreach (var url in GetWebAPIUrl())
+                {
+                    results.AddRange(ServiceUtils.GetWebAPI<IEnumerable<EmployeeViewModel>>(
+                        url,
+                        "Users",
+                        "GET",
+                        @params));
+                }
             }
+            catch
+            {
+                // Ignore
+            }
+
 
 
             if (!results.Any())

@@ -366,6 +366,7 @@
     <Content Include="UserPages\OnCall.aspx" />
     <Content Include="UserPages\OnCallDetail.aspx" />
     <Content Include="UserPages\OnCallList.aspx" />
+    <Content Include="UserPages\OnCallReply.aspx" />
     <Content Include="UserPages\RecoverPassword.aspx" />
     <Content Include="UserPages\RegisterADAccount.aspx" />
     <Content Include="Web.config" />
@@ -549,6 +550,13 @@
     </Compile>
     <Compile Include="UserPages\OnCallList.aspx.designer.cs">
       <DependentUpon>OnCallList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPages\OnCallReply.aspx.cs">
+      <DependentUpon>OnCallReply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPages\OnCallReply.aspx.designer.cs">
+      <DependentUpon>OnCallReply.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPages\RecoverPassword.aspx.cs">
       <DependentUpon>RecoverPassword.aspx</DependentUpon>

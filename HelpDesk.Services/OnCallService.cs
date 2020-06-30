@@ -125,5 +125,33 @@ namespace HelpDesk.Services
 
             this.repo.Update(item);
         }
+
+        /// <summary>
+        /// The get by doc no.
+        /// </summary>
+        /// <param name="docNo">
+        /// The doc no.
+        /// </param>
+        /// <returns>
+        /// The <see cref="OnCallModel"/>.
+        /// </returns>
+        public OnCallModel GetByDocNo(string docNo)
+        {
+            return this.repo.GetByDocNo(docNo);
+        }
+
+        /// <summary>
+        /// The get.
+        /// </summary>
+        /// <param name="model">
+        /// The model.
+        /// </param>
+        /// <returns>
+        /// The <see cref="OnCallModel"/>.
+        /// </returns>
+        public OnCallModel Get(FormSearchViewModel model)
+        {
+            return this.repo.Get(model);
+        }
     }
 }

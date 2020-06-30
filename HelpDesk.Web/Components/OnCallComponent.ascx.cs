@@ -14,6 +14,7 @@ namespace HelpDesk.Web.Components
     using System.Data.SqlClient;
     using System.Linq;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
 
     using HelpDesk.Services;
     using HelpDesk.Utils;
@@ -105,6 +106,14 @@ namespace HelpDesk.Web.Components
         /// </param>
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+
+        protected void DropDownListMain_OnDataBound(object sender, EventArgs e)
+        {
+            foreach (var listItem in this.DropDownListMain.Items.OfType<ListItem>())
+            {
+                listItem.Selected = listItem.Value == "M4";
+            }
         }
     }
 }

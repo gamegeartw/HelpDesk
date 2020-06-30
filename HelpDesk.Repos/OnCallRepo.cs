@@ -78,8 +78,14 @@ And (
         /// </returns>
         public override OnCallModel Get(FormSearchViewModel searchViewModel)
         {
-            this.sql = $"Select * From HELPDESK_ONCALLS Where Id=@{searchViewModel.SearchText}";
+            this.sql = $"Select * From HELPDESK_ONCALLS Where Id=@{nameof(searchViewModel.SearchText) }";
             return this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, searchViewModel);
+        }
+
+        public OnCallModel GetByDocNo(string docNo)
+        {
+            this.sql = $"Select * From HELPDESK_ONCALLS Where DocNo=@docNo";
+            return this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, new { docNo });
         }
 
         /// <summary>
