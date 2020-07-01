@@ -153,5 +153,16 @@ namespace HelpDesk.Services
         {
             return this.repo.Get(model);
         }
+
+        /// <summary>
+        /// The update.
+        /// </summary>
+        /// <param name="model">
+        /// The model.
+        /// </param>
+        public void Update(OnCallModel model)
+        {
+            this.repo.Update(model);
+        }
     }
 }
