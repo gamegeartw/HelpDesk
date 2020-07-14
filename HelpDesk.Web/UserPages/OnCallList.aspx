@@ -8,7 +8,9 @@
     <uc1:FormSearchComponent runat="server" ID="FormSearchComponent" ShowItems="SearchText" OnSearch="FormSearchComponent_OnSearch" />
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">報修案件清單</h3>
+            <h3 class="box-title">
+                <asp:Literal runat="server" ID="Literal_Label_OnCallList" Text="<%$ Resources:Pages,Label_OnCallList %>"/>
+            </h3>
         </div>
         <div class="box-body">
             <div>
@@ -32,12 +34,25 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>編號</th>
-                            <th>送修單位</th>
-                            <th>送修人員</th>
-                            <th>送修時間</th>
-                            <th>處理人員</th>
-                            <th>目前進度</th>
+                            <th>
+                                <asp:Literal runat="server" ID="Literal_Table_DocNo" Text="<%$ Resources:Pages,Table_DocNo %>"/>
+                            </th>
+                            <th>
+                                <asp:Literal runat="server" ID="Literal_Table_OnCallDept" Text="<%$ Resources:Pages,Table_OnCallDept %>"/>
+                            </th>
+                            <th>
+                                <asp:Literal runat="server" ID="Literal_Table_Employee" Text="<%$ Resources:Pages,Table_Employee %>"/>
+                            </th>
+                            <th>
+                                <asp:Literal runat="server" ID="Literal_Table_OnCallDate" Text="<%$ Resources:Pages,Table_OnCallDate %>"/>
+                            </th>
+                            <th>
+                                <asp:Literal runat="server" ID="Literal_Table_ProcessUser" Text="<%$ Resources:Pages,Table_ProcessUser %>"/>
+                            </th>
+                            <th>
+                                <asp:Literal runat="server" ID="Literal_Table_Status" Text="<%$ Resources:Pages,Table_Status %>"/>
+                                
+                            </th>
                         </tr>
                         </thead>
                         <tbody>

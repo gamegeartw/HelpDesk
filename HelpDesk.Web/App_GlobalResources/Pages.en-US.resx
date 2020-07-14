@@ -141,4 +141,22 @@
   <data name="Table_OnCallReason" xml:space="preserve">
     <value>Reason</value>
   </data>
+  <data name="Table_OnCallType" xml:space="preserve">
+    <value>On call type</value>
+  </data>
+  <data name="Table_ContactPhone" xml:space="preserve">
+    <value>Contact phone</value>
+  </data>
+  <data name="Btn_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Label_OnCall" xml:space="preserve">
+    <value>Service OnCall</value>
+  </data>
+  <data name="Label_OnCallList" xml:space="preserve">
+    <value>On call list</value>
+  </data>
+  <data name="Table_OnCallDept" xml:space="preserve">
+    <value>On call Dept</value>
+  </data>
 </root>

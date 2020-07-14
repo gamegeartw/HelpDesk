@@ -121,4 +121,22 @@
   <data name="Table_OnCallReason" xml:space="preserve">
     <value>報修原因</value>
   </data>
+  <data name="Table_OnCallType" xml:space="preserve">
+    <value>報修項目</value>
+  </data>
+  <data name="Table_ContactPhone" xml:space="preserve">
+    <value>連絡電話</value>
+  </data>
+  <data name="Btn_Submit" xml:space="preserve">
+    <value>送出表單</value>
+  </data>
+  <data name="Label_OnCall" xml:space="preserve">
+    <value>報修作業</value>
+  </data>
+  <data name="Label_OnCallList" xml:space="preserve">
+    <value>報修案件清單</value>
+  </data>
+  <data name="Table_OnCallDept" xml:space="preserve">
+    <value>報修單位</value>
+  </data>
 </root>

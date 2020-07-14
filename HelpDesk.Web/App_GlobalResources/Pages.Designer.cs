@@ -61,6 +61,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查詢類似 送出表單 的當地語系化字串。
+        /// </summary>
+        internal static string Btn_Submit {
+            get {
+                return ResourceManager.GetString("Btn_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 報修作業 的當地語系化字串。
+        /// </summary>
+        internal static string Label_OnCall {
+            get {
+                return ResourceManager.GetString("Label_OnCall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 報修案件清單 的當地語系化字串。
+        /// </summary>
+        internal static string Label_OnCallList {
+            get {
+                return ResourceManager.GetString("Label_OnCallList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 連絡電話 的當地語系化字串。
+        /// </summary>
+        internal static string Table_ContactPhone {
+            get {
+                return ResourceManager.GetString("Table_ContactPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 內容 的當地語系化字串。
         /// </summary>
         internal static string Table_Content {
@@ -106,11 +142,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查詢類似 報修單位 的當地語系化字串。
+        /// </summary>
+        internal static string Table_OnCallDept {
+            get {
+                return ResourceManager.GetString("Table_OnCallDept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 報修原因 的當地語系化字串。
         /// </summary>
         internal static string Table_OnCallReason {
             get {
                 return ResourceManager.GetString("Table_OnCallReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 報修項目 的當地語系化字串。
+        /// </summary>
+        internal static string Table_OnCallType {
+            get {
+                return ResourceManager.GetString("Table_OnCallType", resourceCulture);
             }
         }
         
