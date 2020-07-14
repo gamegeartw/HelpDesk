@@ -52,7 +52,7 @@
                                 <i class="fa fa-list"></i>明細
                             </asp:HyperLink>
                             
-                            <asp:HyperLink runat="server" ID="HyperLinkReport" CssClass="btn btn-default btn-sm btn-flat" NavigateUrl='<%#: "OnCallReport.aspx?DocNo="+ Item.DocNo %>'>
+                            <asp:HyperLink runat="server" ID="HyperLinkReport" CssClass="btn btn-default btn-sm btn-flat" NavigateUrl='<%#: "OnCallReply.aspx?DocNo="+ Item.DocNo %>'>
                                 <i class="fa fa-mail-reply"></i>回報
                             </asp:HyperLink>
 

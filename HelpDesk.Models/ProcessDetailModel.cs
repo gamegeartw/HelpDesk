@@ -43,6 +43,18 @@ namespace HelpDesk.Models
         public string ProcessDesc { get; set; }
 
         /// <summary>
+        /// 設備編號
+        /// </summary>
+        [Display(Name = "原設備編號")]
+        public string SourceDeiceNo { get; set; }
+
+        /// <summary>
+        /// 更換後設備編號
+        /// </summary>
+        [Display(Name = "更換後設備編號")]
+        public string DestDeviceNo { get; set; }
+
+        /// <summary>
         /// 處理人員
         /// </summary>
         [Required]

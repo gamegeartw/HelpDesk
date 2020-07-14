@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk.Web", "HelpDesk.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{D2C6422B-045A-42DE-AD60-C8A94C2F6371}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelpDesk.Res", "HelpDesk.Res\HelpDesk.Res.csproj", "{1814359A-3A0F-4C18-A255-250514A043A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,11 +67,17 @@ Global
 		{D2C6422B-045A-42DE-AD60-C8A94C2F6371}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C6422B-045A-42DE-AD60-C8A94C2F6371}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2C6422B-045A-42DE-AD60-C8A94C2F6371}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1814359A-3A0F-4C18-A255-250514A043A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1814359A-3A0F-4C18-A255-250514A043A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1814359A-3A0F-4C18-A255-250514A043A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1814359A-3A0F-4C18-A255-250514A043A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15710243-8009-49F2-9582-0571E627DCB1}
+		RESX_NeutralResourcesLanguage = zh-TW
+		RESX_CodeReferences = {"Items":[{"Expression":"\\W($File.$Key)\\W","Extensions":".cs,.xaml,.cshtml","IsCaseSensitive":false,"SingleLineComment":"\/\/"},{"Expression":"\\W($File.$Key)\\W","Extensions":".vbhtml","IsCaseSensitive":false,"SingleLineComment":null},{"Expression":"ResourceManager.GetString\\(\"($Key)\"\\)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"typeof\\((\\w+\\.)*($File)\\).+\"($Key)\"|\"($Key)\".+typeof\\((\\w+\\.)*($File)\\)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\W($Key)\\W","Extensions":".vb","IsCaseSensitive":false,"SingleLineComment":"'"},{"Expression":"\\W($File::$Key)\\W","Extensions":".cpp,.c,.hxx,.h","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"&lt;%\\$\\s+Resources:\\s*($File)\\s*,\\s*($Key)\\s*%&gt;","Extensions":".aspx,.ascx,.master","IsCaseSensitive":true,"SingleLineComment":null},{"Expression":"StringResourceKey\\.($Key)","Extensions":".cs","IsCaseSensitive":true,"SingleLineComment":"\/\/"},{"Expression":"\\.($Key)","Extensions":".ts,.html","IsCaseSensitive":true,"SingleLineComment":"\/\/"}]}
 	EndGlobalSection
 EndGlobal

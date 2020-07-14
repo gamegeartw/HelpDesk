@@ -197,6 +197,7 @@
     <Content Include="Components\DeptListComponent.ascx" />
     <Content Include="Components\FormSearchComponent.ascx" />
     <Content Include="Components\OnCallComponent.ascx" />
+    <Content Include="Components\OnCallDetailComponent.ascx" />
     <Content Include="Components\OnCallReportComponent.ascx" />
     <Content Include="Components\StatusComponent.ascx" />
     <Content Include="Components\UsersComponent.ascx" />
@@ -418,6 +419,16 @@
     <Compile Include="Admins\UserManager.aspx.designer.cs">
       <DependentUpon>UserManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Pages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Pages.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pages.en-US.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -453,6 +464,13 @@
     </Compile>
     <Compile Include="Components\OnCallComponent.ascx.designer.cs">
       <DependentUpon>OnCallComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\OnCallDetailComponent.ascx.cs">
+      <DependentUpon>OnCallDetailComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\OnCallDetailComponent.ascx.designer.cs">
+      <DependentUpon>OnCallDetailComponent.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\OnCallReportComponent.ascx.cs">
       <DependentUpon>OnCallReportComponent.ascx</DependentUpon>
@@ -582,6 +600,10 @@
       <Project>{2db56e5e-2521-484b-885b-d9c85751491e}</Project>
       <Name>HelpDesk.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HelpDesk.Res\HelpDesk.Res.csproj">
+      <Project>{1814359a-3a0f-4c18-a255-250514a043a7}</Project>
+      <Name>HelpDesk.Res</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelpDesk.Services\HelpDesk.Services.csproj">
       <Project>{5d342632-f9ab-4570-b650-b4c21114d120}</Project>
       <Name>HelpDesk.Services</Name>
@@ -594,6 +616,18 @@
       <Project>{c2876e55-b450-46c9-899a-e19fce56c35b}</Project>
       <Name>HelpDesk.ViewModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Pages.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Pages.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Pages.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Pages.en-US.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -49,6 +49,10 @@ namespace HelpDesk.Web.UserPages
         /// </param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+
+            }
         }
 
         /// <summary>
@@ -95,7 +99,9 @@ namespace HelpDesk.Web.UserPages
 
         public IEnumerable<OnCallReportModel> SelectReportModels([QueryString("DocNo")] string docNo)
         {
-            throw new NotImplementedException();
+            return null;
+
+            // throw new NotImplementedException();
         }
     }
 }

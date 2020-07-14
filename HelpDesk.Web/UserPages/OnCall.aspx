@@ -28,7 +28,9 @@
                         <%--     </div> --%>
                         <%-- </div> --%>
                         <div class="form-group">
-                            <label class="control-label col-md-2">申請人(User)</label>
+                            <label class="control-label col-md-2">
+                                <asp:Literal runat="server" ID="Literal_Label_Employee" Text="<%$ Resources:Pages,Table_Employee %>"></asp:Literal>
+                            </label>
                             <div class="col-md-10">
                                 <uc1:UsersComponent runat="server" id="UsersComponent" DefaultValues="<%#: BindItem.EmpNo %>" />
                             </div>
