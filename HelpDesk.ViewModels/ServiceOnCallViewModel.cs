@@ -20,6 +20,10 @@ namespace HelpDesk.ViewModels
     /// </summary>
     public class ServiceOnCallViewModel
     {
+        /// <summary>
+        /// 案件編號
+        /// </summary>
+        [Display(Name = "案件編號")]
         public string DocNo { get; set; }
 
         /// <summary>

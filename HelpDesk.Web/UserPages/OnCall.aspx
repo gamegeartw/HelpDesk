@@ -23,12 +23,6 @@
                 ID="FormViewMain">
                 <InsertItemTemplate>
                     <div class="form-horizontal">
-                        <%-- <div class="form-group"> --%>
-                        <%--     <label class="control-label col-md-2">叫修單位(Dept)</label> --%>
-                        <%--     <div class="col-md-10"> --%>
-                        <%--         <uc1:DeptListComponent runat="server" ID="DeptListComponent" DefaultValues="<%#: BindItem.DeptNo %>" /> --%>
-                        <%--     </div> --%>
-                        <%-- </div> --%>
                         <div class="form-group">
                             <label class="control-label col-md-2">
                                 <asp:Literal runat="server" ID="Literal_Label_Employee" Text="<%$ Resources:Pages,Table_Employee %>"/>

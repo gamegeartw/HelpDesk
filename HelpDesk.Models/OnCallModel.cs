@@ -158,6 +158,6 @@ namespace HelpDesk.Models
         /// 處理經過
         /// </summary>
         [Display(Name = "處理經過")]
-        public ProcessDetailModel[] ProcessDetails { get; set; }
+        public OnCallReportModel[] ProcessDetails { get; set; }
     }
 }

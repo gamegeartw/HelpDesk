@@ -10,32 +10,65 @@
 namespace HelpDesk.Web.Components
 {
     using System;
+    using System.Collections.Generic;
 
     using HelpDesk.Models;
 
+    /// <summary>
+    /// The on call detail component.
+    /// </summary>
     public partial class OnCallDetailComponent : System.Web.UI.UserControl
     {
-        public string DocNo
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        public OnCallModel Model
         {
             get
             {
-                return (string)this.ViewState[nameof(this.DocNo)];
+                return (OnCallModel)this.ViewState[nameof(this.Model)];
             }
 
             set
             {
-                this.ViewState[nameof(this.DocNo)] = value;
+                this.ViewState[nameof(this.Model)] = value;
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// The select.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="OnCallModel"/>.
+        /// </returns>
         public OnCallModel Select()
         {
-            throw new NotImplementedException();
+            return this.Model;
+        }
+
+        /// <summary>
+        /// The select on call report list.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerable{OnCallReportModel}"/>.
+        /// </returns>
+        public IEnumerable<OnCallReportModel> SelectOnCallReportList()
+        {
+            return this.Model.ProcessDetails;
+        }
+
+        /// <summary>
+        /// The page_ load.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Ignore
         }
     }
 }

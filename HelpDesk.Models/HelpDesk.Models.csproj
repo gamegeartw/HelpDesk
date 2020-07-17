@@ -45,7 +45,6 @@
     <Compile Include="Dept.cs" />
     <Compile Include="DeviceModel.cs" />
     <Compile Include="OnCallModel.cs" />
-    <Compile Include="OnCallReportModel.cs" />
     <Compile Include="ParamData.cs" />
     <Compile Include="ProcessDetailModel.cs" />
     <Compile Include="UserData.cs" />

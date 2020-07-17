@@ -17,7 +17,7 @@ namespace HelpDesk.Models
     /// <summary>
     /// The process detail model.
     /// </summary>
-    public class ProcessDetailModel
+    public class OnCallReportModel
     {
         /// <summary>
         /// 流水號

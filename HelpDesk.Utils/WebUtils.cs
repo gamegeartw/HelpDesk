@@ -12,6 +12,7 @@ namespace HelpDesk.Utils
     using System;
     using System.Collections.Generic;
     using System.Configuration;
+    using System.Data;
     using System.Text;
     using System.Web;
     using System.Web.Configuration;
@@ -77,6 +78,14 @@ namespace HelpDesk.Utils
         public static string GetConnString(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+        }
+
+        public static IDbConnection GetDBConn(string name)
+        {
+            var factory =
+                System.Data.Common.DbProviderFactories.GetFactory(
+                    ConfigurationManager.ConnectionStrings[name].ProviderName);
+            return factory.CreateConnection();
         }
 
         /// <summary>

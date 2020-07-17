@@ -82,11 +82,11 @@
                 <ItemTemplate>
                     <tr>
                         <td></td>
-                        <td><%#: Item.SeqNo %></td>
+                        <td><%#: Item.Line %></td>
                         <td>
                             <asp:DynamicControl runat="server" ID="DynamicControl_Time" DataField="ProcessTime" DataFormatString="{0:yyyy/MM/dd HH:mm:ss}" />
                         </td>
-                        <td><%#: Item.ProcessUser %></td>
+                        <td><%#: Item.EmpName %></td>
                         <td>
                             <uc1:StatusComponent runat="server" ID="StatusComponent" HelpDeskStatus="<%#: Item.ProcessStatus %>" />
                         </td>
