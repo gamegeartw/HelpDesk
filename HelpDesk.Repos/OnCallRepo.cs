@@ -79,13 +79,28 @@ And (
         public override OnCallModel Get(FormSearchViewModel searchViewModel)
         {
             this.sql = $"Select * From HELPDESK_ONCALLS Where Id=@{nameof(searchViewModel.SearchText) }";
-            return this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, searchViewModel);
+            var result = this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, searchViewModel);
+
+            if (result != null)
+            {
+                this.sql = ";Select * from dbo.HELPDESK_ONCALL_REPORTS Where DocNo =@DocNo";
+                result.ProcessDetails = this.Conn.Query<OnCallReportModel>(this.sql, result).ToList();
+            }
+
+            return result;
         }
 
         public OnCallModel GetByDocNo(string docNo)
         {
-            this.sql = $"Select * From HELPDESK_ONCALLS Where DocNo=@docNo";
-            return this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, new { docNo });
+            this.sql = $"Select * From HELPDESK_ONCALLS Where DocNo=@{nameof(docNo)}";
+            var result = this.Conn.QueryFirstOrDefault<OnCallModel>(this.sql, new { docNo });
+            if (result != null)
+            {
+                this.sql = ";Select * from dbo.HELPDESK_ONCALL_REPORTS Where DocNo =@DocNo";
+                result.ProcessDetails = this.Conn.Query<OnCallReportModel>(this.sql, result).ToList();
+            }
+
+            return result;
         }
 
         /// <summary>

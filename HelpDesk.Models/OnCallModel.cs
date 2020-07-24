@@ -10,6 +10,7 @@
 namespace HelpDesk.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
@@ -18,6 +19,7 @@ namespace HelpDesk.Models
     /// <summary>
     /// The on call model.
     /// </summary>
+    [Serializable]
     public class OnCallModel : BaseClass
     {
         /// <summary>
@@ -158,6 +160,6 @@ namespace HelpDesk.Models
         /// 處理經過
         /// </summary>
         [Display(Name = "處理經過")]
-        public OnCallReportModel[] ProcessDetails { get; set; }
+        public IEnumerable<OnCallReportModel>  ProcessDetails { get; set; }
     }
 }

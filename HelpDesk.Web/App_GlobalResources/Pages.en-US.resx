@@ -159,4 +159,16 @@
   <data name="Table_OnCallDept" xml:space="preserve">
     <value>On call Dept</value>
   </data>
+  <data name="Label_OnCallDetail" xml:space="preserve">
+    <value>On call detail</value>
+  </data>
+  <data name="Btn_Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="Btn_Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

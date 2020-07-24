@@ -2,6 +2,8 @@
 
 <%@ Register Src="~/Components/FormSearchComponent.ascx" TagPrefix="uc1" TagName="FormSearchComponent" %>
 <%@ Register Src="~/Components/ButtonListComponent.ascx" TagPrefix="uc1" TagName="ButtonListComponent" %>
+<%@ Register Src="~/Components/DataPageComponent.ascx" TagPrefix="uc1" TagName="DataPageComponent" %>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -12,15 +14,8 @@
             <h3 class="box-title">參數清單</h3>
         </div>
         <div class="box-body">
-            <div>
-                <asp:DataPager runat="server" ID="DataPager1" PagedControlID="ListViewMain">
-                    <Fields>
-                        <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                        <asp:NumericPagerField CurrentPageLabelCssClass="btn btn-info btn-flat" NextPreviousButtonCssClass="btn btn-default btn-flat" NumericButtonCssClass="btn btn-default btn-flat" />
-                        <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                    </Fields>
-                </asp:DataPager>
-            </div>
+
+            <uc1:DataPageComponent runat="server" ID="DataPageComponent" PagedControlID="ListViewMain"/>
             <asp:ListView
                 ItemType="HelpDesk.Models.ParamData"
                 SelectMethod="SelectList"

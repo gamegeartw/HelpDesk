@@ -17,6 +17,7 @@ namespace HelpDesk.Models
     /// <summary>
     /// The process detail model.
     /// </summary>
+    [Serializable]
     public class OnCallReportModel
     {
         /// <summary>

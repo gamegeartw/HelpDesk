@@ -15,6 +15,15 @@ namespace HelpDesk.Web.UserPages
     {
 
         /// <summary>
+        /// Panel_Main 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_Main;
+
+        /// <summary>
         /// FormSearchComponent 控制項。
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace HelpDesk.Web.UserPages
         protected global::System.Web.UI.WebControls.Literal Literal_Label_OnCallList;
 
         /// <summary>
-        /// DataPager1 控制項。
+        /// DataPageComponent 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager DataPager1;
+        protected global::HelpDesk.Web.Components.DataPageComponent DataPageComponent;
 
         /// <summary>
         /// ListViewMain 控制項。
@@ -49,5 +58,14 @@ namespace HelpDesk.Web.UserPages
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ListViewMain;
+
+        /// <summary>
+        /// OnCallDetailComponent 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::HelpDesk.Web.Components.OnCallDetailComponent OnCallDetailComponent;
     }
 }

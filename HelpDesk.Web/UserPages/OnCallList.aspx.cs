@@ -185,5 +185,23 @@ namespace HelpDesk.Web.UserPages
                 this.ModelState.AddModelError("error", exception.Message);
             }
         }
+
+        public void Detail(string id)
+        {
+            this.Panel_Main.Visible = false;
+            var data = this.service.Get(new FormSearchViewModel { SearchText = id });
+            this.OnCallDetailComponent.Model = data;
+            this.OnCallDetailComponent.Visible = true;
+            this.OnCallDetailComponent.DataBind();
+        }
+
+        public void Report(string id)
+        {
+            this.Panel_Main.Visible = false;
+            var data = this.service.Get(new FormSearchViewModel { SearchText = id });
+            this.OnCallDetailComponent.Model = data;
+            this.OnCallDetailComponent.Visible = true;
+            this.OnCallDetailComponent.DataBind();
+        }
     }
 }

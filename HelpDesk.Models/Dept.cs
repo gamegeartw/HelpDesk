@@ -9,11 +9,13 @@
 
 namespace HelpDesk.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// The dept.
     /// </summary>
+    [Serializable]
     public class Dept
     {
         /// <summary>

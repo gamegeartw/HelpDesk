@@ -194,6 +194,7 @@
     <Content Include="Admins\UserDetail.aspx" />
     <Content Include="Admins\UserManager.aspx" />
     <Content Include="Components\ButtonListComponent.ascx" />
+    <Content Include="Components\DataPageComponent.ascx" />
     <Content Include="Components\DeptListComponent.ascx" />
     <Content Include="Components\FormSearchComponent.ascx" />
     <Content Include="Components\OnCallComponent.ascx" />
@@ -443,6 +444,13 @@
     </Compile>
     <Compile Include="Components\ButtonListComponent.ascx.designer.cs">
       <DependentUpon>ButtonListComponent.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DataPageComponent.ascx.cs">
+      <DependentUpon>DataPageComponent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\DataPageComponent.ascx.designer.cs">
+      <DependentUpon>DataPageComponent.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\DeptListComponent.ascx.cs">
       <DependentUpon>DeptListComponent.ascx</DependentUpon>

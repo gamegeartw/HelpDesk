@@ -2,6 +2,8 @@
 
 <%@ Register Src="~/Components/FormSearchComponent.ascx" TagPrefix="uc1" TagName="FormSearchComponent" %>
 <%@ Register Src="~/Components/StatusComponent.ascx" TagPrefix="uc1" TagName="StatusComponent" %>
+<%@ Register Src="~/Components/DataPageComponent.ascx" TagPrefix="uc1" TagName="DataPageComponent" %>
+
 
 
 
@@ -22,13 +24,15 @@
                     </div>
                     <div class="box-body">
                         <div style="padding-bottom: 10px">
-                            <asp:DataPager runat="server" ID="DataPager2" PagedControlID="ListViewServiceOnCall">
-                                <Fields>
-                                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                    <asp:NumericPagerField CurrentPageLabelCssClass="btn btn-info btn-flat" NextPreviousButtonCssClass="btn btn-default btn-flat" NumericButtonCssClass="btn btn-default btn-flat" />
-                                    <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                </Fields>
-                            </asp:DataPager>
+                            <%-- <asp:DataPager runat="server" ID="DataPager2" PagedControlID="ListViewServiceOnCall"> --%>
+                            <%--     <Fields> --%>
+                            <%--         <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" /> --%>
+                            <%--         <asp:NumericPagerField CurrentPageLabelCssClass="btn btn-info btn-flat" NextPreviousButtonCssClass="btn btn-default btn-flat" NumericButtonCssClass="btn btn-default btn-flat" /> --%>
+                            <%--         <asp:NextPreviousPagerField ButtonCssClass="btn btn-default btn-flat" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" /> --%>
+                            <%--     </Fields> --%>
+                            <%-- </asp:DataPager> --%>
+                            <uc1:DataPageComponent runat="server" id="DataPageComponent" PagedControlID="ListViewServiceOnCall"/>
+
                         </div>
                         <asp:ListView
                             runat="server"

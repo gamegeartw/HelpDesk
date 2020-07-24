@@ -61,6 +61,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   查詢類似 結案 的當地語系化字串。
+        /// </summary>
+        internal static string Btn_Close {
+            get {
+                return ResourceManager.GetString("Btn_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 明細 的當地語系化字串。
+        /// </summary>
+        internal static string Btn_Detail {
+            get {
+                return ResourceManager.GetString("Btn_Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 回報 的當地語系化字串。
+        /// </summary>
+        internal static string Btn_Report {
+            get {
+                return ResourceManager.GetString("Btn_Report", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 送出表單 的當地語系化字串。
         /// </summary>
         internal static string Btn_Submit {
@@ -75,6 +102,15 @@ namespace Resources {
         internal static string Label_OnCall {
             get {
                 return ResourceManager.GetString("Label_OnCall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 報修案件明細 的當地語系化字串。
+        /// </summary>
+        internal static string Label_OnCallDetail {
+            get {
+                return ResourceManager.GetString("Label_OnCallDetail", resourceCulture);
             }
         }
         

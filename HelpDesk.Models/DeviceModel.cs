@@ -14,6 +14,7 @@ namespace HelpDesk.Models
     /// <summary>
     /// The device model.
     /// </summary>
+    [Serializable]
     public class DeviceModel
     {
         /// <summary>
